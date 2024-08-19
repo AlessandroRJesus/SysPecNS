@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SysPecNSLib
 {
-    internal class Produto
+    public class Produto
     {
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SysPecNSLib
 {
-    internal class Nivel
+    public class Nivel
     {
     }
 }

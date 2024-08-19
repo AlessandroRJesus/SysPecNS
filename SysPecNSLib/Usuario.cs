@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace SysPecNSLib
 {
-    internal class Usuario
+    public class Usuario
     {
+        public void Inserir(int id, string flaus)
+        {
+            var cmd = Banco.Abrir();
+        }
     }
 }
