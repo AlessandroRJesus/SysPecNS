@@ -91,7 +91,13 @@ namespace SysPecNSLib
         }
         public bool Atualizar()
         {
-            return true;        
+            var cmd = Banco.Abrir();
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = $"update niveis set nome = '{Nome}',sigla = '{Sigla}' where id = {id}";
+            if (cmd.ExecuteNonQuery() > 0)
+                return true;        
+            else
+                return false;
         }
         public void Excluir(int id)
         {
