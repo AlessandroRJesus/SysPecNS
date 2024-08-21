@@ -94,10 +94,8 @@ namespace SysPecNSLib
             var cmd = Banco.Abrir();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = $"update niveis set nome = '{Nome}',sigla = '{Sigla}' where id = {id}";
-            if (cmd.ExecuteNonQuery() > 0)
-                return true;        
-            else
-                return false;
+            return cmd.ExecuteNonQuery() > 0? true : false;
+              
         }
         public void Excluir(int id)
         {
