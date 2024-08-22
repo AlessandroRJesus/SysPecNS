@@ -81,7 +81,7 @@ namespace SysPecNSLib
             // consulta para retornar a lista de niveis 
             var cmd = Banco.Abrir();
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = "select *from niveis";
+            cmd.CommandText = $"select *from niveis";
             var dr = cmd.ExecuteReader();
             while (dr.Read()) 
             {
@@ -93,13 +93,17 @@ namespace SysPecNSLib
         {
             var cmd = Banco.Abrir();
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = $"update niveis set nome = '{Nome}',sigla = '{Sigla}' where id = {id}";
-            return cmd.ExecuteNonQuery() > 0? true : false;
+            cmd.CommandText = $"update niveis" + $"set nome = '{Nome}',sigla = '{Sigla}' where id = {Id}";
+            return cmd.ExecuteNonQuery() > 0? true : false ;
               
         }
         public void Excluir(int id)
         {
-            
+            // Em geral nada se exclui de uma tabela
+            var cmd = Banco.Abrir();
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = $"delete from niveis where id = {Id}";
+            cmd.ExecuteNonQuery();
         }
 
     }
