@@ -151,22 +151,36 @@ namespace SysPecNSLib
 
         public void Atualizar()
         {
-            // O Usuario poderar alterar nome e senha
-            
+            // O Usuario poderar alterar nome e senha e o nivel 
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "sp_usuario_altera";
+            //cmd.Parameters.Add("spid",MySqlDbType.Int32).value = Id;
+            cmd.Parameters.AddWithValue("spid", Id);
+            cmd.Parameters.AddWithValue("spnome", Nome);
+            cmd.Parameters.AddWithValue("spsenha", Senha);
+            cmd.Parameters.AddWithValue("spnivel", Nivel.Id);
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
         }
 
-        public void Arquivar()
-        { 
-            //arquivar usuarios inativos    
+        public static void Arquivar(int id)
+        {
+            //arquivar usuarios inativos
+            var cmd = Banco.Abrir();
+            cmd.CommandText = $"update usuarios set ativo = 0 where id = {id}";
+            cmd.ExecuteNonQuery ();
+            cmd.Connection.Close ();    
+
         }
 
-        public void Restaurar() 
+        public static void Restaurar(int id) 
         {
             // restaurar usuários que estavam inativos 
+            var cmd = Banco.Abrir();
+            cmd.CommandText = $"update usuarios set ativo = 1 where id = {id}";
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
         }
-
-
-
-
     }
 }
