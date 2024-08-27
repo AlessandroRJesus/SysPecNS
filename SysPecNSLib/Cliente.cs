@@ -8,6 +8,7 @@ namespace SysPecNSLib
 {
     public class Cliente
     {
+        public int Id { get; set; }
         public string? Nome { get; set; }
         public string? Cpf { get; set; }
         public string? Telefone { get; set; }
@@ -25,6 +26,18 @@ namespace SysPecNSLib
 
         public Cliente(string? nome, string? cpf, string? telefone, string? email, DateTime? data_nasc, DateTime? data_cad, string? ativo)
         {
+            Nome = nome;
+            Cpf = cpf;
+            Telefone = telefone;
+            Email = email;
+            Data_nasc = data_nasc;
+            Data_cad = data_cad;
+            Ativo = ativo;
+        }
+
+        public Cliente (int id,string? nome, string? cpf, string? telefone, string? email, DateTime? data_nasc, DateTime? data_cad, string? ativo)
+        {
+            Id = Id;
             Nome = nome;
             Cpf = cpf;
             Telefone = telefone;
