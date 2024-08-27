@@ -51,8 +51,30 @@ namespace SysPecNSDesk
 
         private void btn_Inserir_Click(object sender, EventArgs e)
         {
-            Usuario usuario = new();
-
+            Usuario usuario = new(
+                txt_Nome.Text,
+                txt_Email.Text,
+                txt_Senha.Text,
+                Nivel.ObterPorId(Convert.ToInt32(cmbNivel.SelectedValue))
+                );
+            usuario.Inserir();
+            if (usuario.Id > 0)
+            {
+                txt_ID.Text = usuario.Id.ToString();
+                MessageBox.Show($"O usuário {usuario.Nome}," +
+                    $"Foi inserido com sucesso, com o ID {usuario.Id}");
+                txt_ID.Clear();
+                txt_Nome.Clear();
+                txt_Email.Clear();
+                txt_confirma_senha.Clear();
+                txt_Senha.Clear();
+                txt_Nome.Focus();
+                FrmUsuario_Load(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Falha ao gravar o usuário!");
+            }
         }
     }
 }

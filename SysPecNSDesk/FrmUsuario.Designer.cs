@@ -40,14 +40,14 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txt_ID = new TextBox();
+            txt_Nome = new TextBox();
             txt_Email = new TextBox();
             cmbNivel = new ComboBox();
             label6 = new Label();
             txt_Senha = new TextBox();
             txt_confirma_senha = new TextBox();
-            checkBox1 = new CheckBox();
+            chkAtivo = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             SuspendLayout();
             // 
@@ -159,19 +159,19 @@
             label5.TabIndex = 6;
             label5.Text = "Senha";
             // 
-            // textBox1
+            // txt_ID
             // 
-            textBox1.Location = new Point(88, 90);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(60, 23);
-            textBox1.TabIndex = 7;
+            txt_ID.Location = new Point(88, 90);
+            txt_ID.Name = "txt_ID";
+            txt_ID.Size = new Size(60, 23);
+            txt_ID.TabIndex = 7;
             // 
-            // textBox2
+            // txt_Nome
             // 
-            textBox2.Location = new Point(154, 90);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(245, 23);
-            textBox2.TabIndex = 8;
+            txt_Nome.Location = new Point(154, 90);
+            txt_Nome.Name = "txt_Nome";
+            txt_Nome.Size = new Size(245, 23);
+            txt_Nome.TabIndex = 8;
             // 
             // txt_Email
             // 
@@ -213,29 +213,29 @@
             txt_confirma_senha.TabIndex = 13;
             txt_confirma_senha.UseSystemPasswordChar = true;
             // 
-            // checkBox1
+            // chkAtivo
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(316, 190);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(54, 19);
-            checkBox1.TabIndex = 14;
-            checkBox1.Text = "Ativo";
-            checkBox1.UseVisualStyleBackColor = true;
+            chkAtivo.AutoSize = true;
+            chkAtivo.Location = new Point(316, 190);
+            chkAtivo.Name = "chkAtivo";
+            chkAtivo.Size = new Size(54, 19);
+            chkAtivo.TabIndex = 14;
+            chkAtivo.Text = "Ativo";
+            chkAtivo.UseVisualStyleBackColor = true;
             // 
             // FrmUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(checkBox1);
+            Controls.Add(chkAtivo);
             Controls.Add(txt_confirma_senha);
             Controls.Add(txt_Senha);
             Controls.Add(label6);
             Controls.Add(cmbNivel);
             Controls.Add(txt_Email);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txt_Nome);
+            Controls.Add(txt_ID);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -265,13 +265,13 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txt_ID;
+        private TextBox txt_Nome;
         private TextBox txt_Email;
         private ComboBox cmbNivel;
         private Label label6;
         private TextBox txt_Senha;
         private TextBox txt_confirma_senha;
-        private CheckBox checkBox1;
+        private CheckBox chkAtivo;
     }
 }
