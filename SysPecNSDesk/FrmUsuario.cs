@@ -31,22 +31,7 @@ namespace SysPecNSDesk
             cmbNivel.DataSource = niveis;
             cmbNivel.DisplayMember = "Nome";
             cmbNivel.ValueMember = "Id";
-            // Preenchendo o datagrid com os usuários
-
-            var lista = Usuario.ObterLista();
-            dgvUsuarios.Rows.Clear();
-            int cont = 0;
-            foreach (var usuario in lista)
-            {
-                dgvUsuarios.Rows.Add();
-                dgvUsuarios.Rows[cont].Cells[0].Value = usuario.Id;
-                dgvUsuarios.Rows[cont].Cells[1].Value = usuario.Nome;
-                dgvUsuarios.Rows[cont].Cells[2].Value = usuario.Email;
-                dgvUsuarios.Rows[cont].Cells[3].Value = usuario.Nivel.Nome;
-                dgvUsuarios.Rows[cont].Cells[4].Value = usuario.Ativo;
-
-                cont++;
-            }
+            CarregaGrid();
         }
 
         private void btn_Inserir_Click(object sender, EventArgs e)
@@ -74,6 +59,36 @@ namespace SysPecNSDesk
             else
             {
                 MessageBox.Show("Falha ao gravar o usuário!");
+            }
+        }
+
+        private void txt_Busca_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_Busca.Text.Length > 0)
+            {
+                CarregaGrid(txt_Busca.Text);
+            }
+            else
+            {
+                CarregaGrid();
+            }
+        }
+        private void CarregaGrid(string nome ="")
+        {
+            // Preenchendo o datagrid com os usuários
+            var lista = Usuario.ObterLista(nome);
+            dgvUsuarios.Rows.Clear();
+            int cont = 0;
+            foreach (var usuario in lista)
+            {
+                dgvUsuarios.Rows.Add();
+                dgvUsuarios.Rows[cont].Cells[0].Value = usuario.Id;
+                dgvUsuarios.Rows[cont].Cells[1].Value = usuario.Nome;
+                dgvUsuarios.Rows[cont].Cells[2].Value = usuario.Email;
+                dgvUsuarios.Rows[cont].Cells[3].Value = usuario.Nivel.Nome;
+                dgvUsuarios.Rows[cont].Cells[4].Value = usuario.Ativo;
+
+                cont++;
             }
         }
     }

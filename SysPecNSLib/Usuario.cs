@@ -96,13 +96,22 @@ namespace SysPecNSLib
 
             return usuario;
         }
-        public static List<Usuario> ObterLista()
+        public static List<Usuario> ObterLista(string?nome = "")
         {
             // lista de usuarios 
             List<Usuario> lista = new();
             var comandosSQL = Banco.Abrir();
             comandosSQL.CommandType = CommandType.Text;
-            comandosSQL.CommandText = "select *from usuarios order by nome limit 10";
+            if (nome == "")
+            {
+                comandosSQL.CommandText = "select *from usuarios order by nome limit 10";
+            }
+            else
+            {
+                comandosSQL.CommandText = $"select *from usuarios where nome like '%{nome}%' order by nome limit 10";
+            }
+
+           
             var dr = comandosSQL.ExecuteReader();
             while(dr.Read()) 
             {
