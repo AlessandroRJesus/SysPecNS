@@ -12,8 +12,8 @@ namespace SysPecNSLib
         public string? Cpf { get; set; }
         public string? Telefone { get; set; }
         public string? Email  { get; set; }
-        public string? Data_nasc{ get; set; }
-        public string? Data_cad {  get; set; }
+        public DateTime? Data_nasc{ get; set; }
+        public DateTime? Data_cad {  get; set; }
         public string? Ativo { get; set; }
 
 
@@ -23,7 +23,7 @@ namespace SysPecNSLib
         }
 
 
-        public Cliente(string? nome, string? cpf, string? telefone, string? email, string? data_nasc, string? data_cad, string? ativo)
+        public Cliente(string? nome, string? cpf, string? telefone, string? email, DateTime? data_nasc, DateTime? data_cad, string? ativo)
         {
             Nome = nome;
             Cpf = cpf;
