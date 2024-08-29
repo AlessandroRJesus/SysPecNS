@@ -69,7 +69,7 @@
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvUsuarios.Size = new Size(501, 124);
             dgvUsuarios.TabIndex = 9;
-            dgvUsuarios.CellContentClick += dataGridView1_CellContentClick;
+            dgvUsuarios.CellContentClick += dgvUsuarios_CellContentClick;
             // 
             // clnId
             // 
@@ -113,7 +113,9 @@
             // btn_Inserir
             // 
             btn_Inserir.BackColor = Color.White;
+            btn_Inserir.Cursor = Cursors.Hand;
             btn_Inserir.FlatAppearance.BorderColor = Color.White;
+            btn_Inserir.FlatStyle = FlatStyle.Flat;
             btn_Inserir.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_Inserir.Image = Properties.Resources.Add;
             btn_Inserir.Location = new Point(106, 177);
@@ -236,21 +238,35 @@
             // 
             // btn_editar
             // 
-            btn_editar.Location = new Point(196, 189);
+            btn_editar.BackColor = Color.White;
+            btn_editar.Cursor = Cursors.Hand;
+            btn_editar.FlatAppearance.BorderColor = Color.White;
+            btn_editar.FlatStyle = FlatStyle.Flat;
+            btn_editar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_editar.Image = Properties.Resources.Edit;
+            btn_editar.Location = new Point(187, 177);
             btn_editar.Name = "btn_editar";
-            btn_editar.Size = new Size(64, 34);
+            btn_editar.Size = new Size(64, 59);
             btn_editar.TabIndex = 6;
             btn_editar.Text = "&Editar";
-            btn_editar.UseVisualStyleBackColor = true;
+            btn_editar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btn_editar.UseVisualStyleBackColor = false;
             // 
             // btn_Deletar
             // 
-            btn_Deletar.Location = new Point(274, 189);
+            btn_Deletar.BackColor = Color.White;
+            btn_Deletar.Cursor = Cursors.Hand;
+            btn_Deletar.FlatAppearance.BorderColor = Color.White;
+            btn_Deletar.FlatStyle = FlatStyle.Flat;
+            btn_Deletar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_Deletar.Image = Properties.Resources.Delete;
+            btn_Deletar.Location = new Point(265, 177);
             btn_Deletar.Name = "btn_Deletar";
-            btn_Deletar.Size = new Size(64, 34);
+            btn_Deletar.Size = new Size(64, 59);
             btn_Deletar.TabIndex = 7;
             btn_Deletar.Text = "De&letar";
-            btn_Deletar.UseVisualStyleBackColor = true;
+            btn_Deletar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btn_Deletar.UseVisualStyleBackColor = false;
             // 
             // txt_Busca
             // 
@@ -262,18 +278,26 @@
             // 
             // btn_Cancelar
             // 
-            btn_Cancelar.Location = new Point(352, 189);
+            btn_Cancelar.BackColor = Color.White;
+            btn_Cancelar.Cursor = Cursors.Hand;
+            btn_Cancelar.FlatAppearance.BorderColor = Color.White;
+            btn_Cancelar.FlatStyle = FlatStyle.Flat;
+            btn_Cancelar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_Cancelar.Image = Properties.Resources.Cancel;
+            btn_Cancelar.Location = new Point(349, 176);
             btn_Cancelar.Name = "btn_Cancelar";
-            btn_Cancelar.Size = new Size(64, 34);
+            btn_Cancelar.Size = new Size(64, 59);
             btn_Cancelar.TabIndex = 12;
             btn_Cancelar.Text = "&Cancelar";
-            btn_Cancelar.UseVisualStyleBackColor = true;
+            btn_Cancelar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btn_Cancelar.UseVisualStyleBackColor = false;
             btn_Cancelar.Click += btn_Cancelar_Click;
             // 
             // FrmUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             CancelButton = btn_Cancelar;
             ClientSize = new Size(569, 450);
             Controls.Add(btn_Cancelar);

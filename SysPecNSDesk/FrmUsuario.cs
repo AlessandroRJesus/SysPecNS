@@ -20,10 +20,6 @@ namespace SysPecNSDesk
             InitializeComponent();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void FrmUsuario_Load(object sender, EventArgs e)
         {
@@ -108,18 +104,26 @@ namespace SysPecNSDesk
         }
         private bool VerificaControles()
         {
-            if (txt_Nome.Text!=string.Empty 
-             ||txt_Email.Text!=string.Empty
-             ||txt_Senha.Text!=string.Empty
-             ||txt_confirma_senha.Text!=string.Empty)
+            if (txt_Nome.Text != string.Empty
+             || txt_Email.Text != string.Empty
+             || txt_Senha.Text != string.Empty
+             || txt_confirma_senha.Text != string.Empty)
             {
                 return true;
             }
-            else 
-            { 
-                return false; 
+            else
+            {
+                return false;
             }
 
+        }
+
+        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = 0;
+            int posicaoLinha = dgvUsuarios.CurrentRow.Index;
+            id = Convert.ToInt32(dgvUsuarios.Rows[posicaoLinha].Cells[0].Value);
+            MessageBox.Show(id.ToString());
         }
     }
 }
