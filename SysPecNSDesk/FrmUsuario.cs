@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -73,7 +74,7 @@ namespace SysPecNSDesk
                 CarregaGrid();
             }
         }
-        private void CarregaGrid(string nome ="")
+        private void CarregaGrid(string nome = "")
         {
             // Preenchendo o datagrid com os usuários
             var lista = Usuario.ObterLista(nome);
@@ -91,5 +92,35 @@ namespace SysPecNSDesk
                 cont++;
             }
         }
+
+        private void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            if (VerificaControles())
+            {
+                var msg = MessageBox.Show("Deseja continuar o cadastro?", "cadastro de usuário", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                if (msg == DialogResult.Yes) this.Close();
+            }
+            else
+            {
+                Close();
+            }
+
+        }
+        private bool VerificaControles()
+        {
+            if (txt_Nome.Text!=string.Empty 
+             ||txt_Email.Text!=string.Empty
+             ||txt_Senha.Text!=string.Empty
+             ||txt_confirma_senha.Text!=string.Empty)
+            {
+                return true;
+            }
+            else 
+            { 
+                return false; 
+            }
+
+        }
     }
 }
+

@@ -31,7 +31,7 @@
             lbl_ID = new Label();
             lbl_Email = new Label();
             lbl_CPF = new Label();
-            button1 = new Button();
+            btn_ = new Button();
             lbl_Nome = new Label();
             lbl_DataNasc = new Label();
             lbl_DataCod = new Label();
@@ -65,14 +65,14 @@
             lbl_CPF.TabIndex = 2;
             lbl_CPF.Text = "CPF";
             // 
-            // button1
+            // btn_
             // 
-            button1.Location = new Point(198, 226);
-            button1.Name = "button1";
-            button1.Size = new Size(71, 40);
-            button1.TabIndex = 3;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            btn_.Location = new Point(198, 226);
+            btn_.Name = "btn_";
+            btn_.Size = new Size(71, 40);
+            btn_.TabIndex = 3;
+            btn_.Text = "button1";
+            btn_.UseVisualStyleBackColor = true;
             // 
             // lbl_Nome
             // 
@@ -119,7 +119,7 @@
             Controls.Add(lbl_DataCod);
             Controls.Add(lbl_DataNasc);
             Controls.Add(lbl_Nome);
-            Controls.Add(button1);
+            Controls.Add(btn_);
             Controls.Add(lbl_CPF);
             Controls.Add(lbl_Email);
             Controls.Add(lbl_ID);
@@ -134,7 +134,7 @@
         private Label lbl_ID;
         private Label lbl_Email;
         private Label lbl_CPF;
-        private Button button1;
+        private Button btn_;
         private Label lbl_Nome;
         private Label lbl_DataNasc;
         private Label lbl_DataCod;
