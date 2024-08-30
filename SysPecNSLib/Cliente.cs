@@ -139,8 +139,40 @@ namespace SysPecNSLib
 
             return lista;
         }
+        public void Atualizar()
+        {
+            // alterar nome e email e etc  
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "sp_cliente_insert";
+            cmd.Parameters.AddWithValue("spnome", Nome);
+            cmd.Parameters.AddWithValue("spemail", Email);
+            cmd.Parameters.AddWithValue("sptelefone", Telefone);
+            cmd.Parameters.AddWithValue("spdatanasc", Data_nasc);
+            cmd.Parameters.AddWithValue("spativo", Ativo);
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+        }
 
-   
+        public static void Arquivar(int id)
+        {
+            //arquivar cliente inativos
+            var cmd = Banco.Abrir();
+            cmd.CommandText = $"update usuarios set ativo = 0 where id = {id}";
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+
+        }
+
+        public static void Restaurar(int id)
+        {
+            // restaurar usuários que estavam inativos 
+            var cmd = Banco.Abrir();
+            cmd.CommandText = $"update usuarios set ativo = 1 where id = {id}";
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+        }
+
 
     }
 }

@@ -30,15 +30,17 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            btn_Cancelar = new Button();
+            btn_Editar = new Button();
             btn_Inserir = new Button();
-            dateTimePicker2 = new DateTimePicker();
-            dateTimePicker1 = new DateTimePicker();
-            textBox7 = new TextBox();
+            DateNasc = new DateTimePicker();
+            DateCad = new DateTimePicker();
+            txt_Email = new TextBox();
             lbl_DataCad = new Label();
-            textBox5 = new TextBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox1 = new TextBox();
+            txt_Telefone = new TextBox();
+            txt_Cpf = new TextBox();
+            txt_Nome = new TextBox();
+            txt_ID = new TextBox();
             chk_Ativo = new CheckBox();
             lbl_DataNasc = new Label();
             lbl_Email = new Label();
@@ -50,9 +52,6 @@
             dataGridView1 = new DataGridView();
             textBox2 = new TextBox();
             groupBox1 = new GroupBox();
-            btn_Editar = new Button();
-            btn_Delete = new Button();
-            btn_Cancelar = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -73,17 +72,16 @@
             // tabPage1
             // 
             tabPage1.Controls.Add(btn_Cancelar);
-            tabPage1.Controls.Add(btn_Delete);
             tabPage1.Controls.Add(btn_Editar);
             tabPage1.Controls.Add(btn_Inserir);
-            tabPage1.Controls.Add(dateTimePicker2);
-            tabPage1.Controls.Add(dateTimePicker1);
-            tabPage1.Controls.Add(textBox7);
+            tabPage1.Controls.Add(DateNasc);
+            tabPage1.Controls.Add(DateCad);
+            tabPage1.Controls.Add(txt_Email);
             tabPage1.Controls.Add(lbl_DataCad);
-            tabPage1.Controls.Add(textBox5);
-            tabPage1.Controls.Add(textBox4);
-            tabPage1.Controls.Add(textBox3);
-            tabPage1.Controls.Add(textBox1);
+            tabPage1.Controls.Add(txt_Telefone);
+            tabPage1.Controls.Add(txt_Cpf);
+            tabPage1.Controls.Add(txt_Nome);
+            tabPage1.Controls.Add(txt_ID);
             tabPage1.Controls.Add(chk_Ativo);
             tabPage1.Controls.Add(lbl_DataNasc);
             tabPage1.Controls.Add(lbl_Email);
@@ -99,38 +97,63 @@
             tabPage1.Text = "Dados Cliente";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btn_Cancelar
+            // 
+            btn_Cancelar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_Cancelar.Image = Properties.Resources.Cancel;
+            btn_Cancelar.Location = new Point(306, 240);
+            btn_Cancelar.Name = "btn_Cancelar";
+            btn_Cancelar.Size = new Size(65, 54);
+            btn_Cancelar.TabIndex = 22;
+            btn_Cancelar.Text = "&Cancelar";
+            btn_Cancelar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btn_Cancelar.UseVisualStyleBackColor = true;
+            // 
+            // btn_Editar
+            // 
+            btn_Editar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_Editar.Image = Properties.Resources.Edit;
+            btn_Editar.Location = new Point(214, 240);
+            btn_Editar.Name = "btn_Editar";
+            btn_Editar.Size = new Size(65, 54);
+            btn_Editar.TabIndex = 20;
+            btn_Editar.Text = "&Editar";
+            btn_Editar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btn_Editar.UseVisualStyleBackColor = true;
+            // 
             // btn_Inserir
             // 
             btn_Inserir.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_Inserir.Image = Properties.Resources.Add;
-            btn_Inserir.Location = new Point(101, 239);
+            btn_Inserir.Location = new Point(126, 240);
             btn_Inserir.Name = "btn_Inserir";
             btn_Inserir.Size = new Size(65, 54);
             btn_Inserir.TabIndex = 19;
             btn_Inserir.Text = "&Inserir";
             btn_Inserir.TextImageRelation = TextImageRelation.ImageAboveText;
             btn_Inserir.UseVisualStyleBackColor = true;
+            btn_Inserir.Click += btn_Inserir_Click;
             // 
-            // dateTimePicker2
+            // DateNasc
             // 
-            dateTimePicker2.Location = new Point(243, 153);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(246, 23);
-            dateTimePicker2.TabIndex = 18;
+            DateNasc.Location = new Point(243, 153);
+            DateNasc.Name = "DateNasc";
+            DateNasc.Size = new Size(246, 23);
+            DateNasc.TabIndex = 18;
             // 
-            // dateTimePicker1
+            // DateCad
             // 
-            dateTimePicker1.Location = new Point(243, 199);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(246, 23);
-            dateTimePicker1.TabIndex = 17;
+            DateCad.Location = new Point(243, 199);
+            DateCad.Name = "DateCad";
+            DateCad.Size = new Size(246, 23);
+            DateCad.TabIndex = 17;
             // 
-            // textBox7
+            // txt_Email
             // 
-            textBox7.Location = new Point(58, 101);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(254, 23);
-            textBox7.TabIndex = 16;
+            txt_Email.Location = new Point(58, 101);
+            txt_Email.Name = "txt_Email";
+            txt_Email.Size = new Size(254, 23);
+            txt_Email.TabIndex = 16;
             // 
             // lbl_DataCad
             // 
@@ -141,33 +164,33 @@
             lbl_DataCad.TabIndex = 15;
             lbl_DataCad.Text = "&Data Do Cadastro";
             // 
-            // textBox5
+            // txt_Telefone
             // 
-            textBox5.Location = new Point(58, 152);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(160, 23);
-            textBox5.TabIndex = 13;
+            txt_Telefone.Location = new Point(58, 152);
+            txt_Telefone.Name = "txt_Telefone";
+            txt_Telefone.Size = new Size(160, 23);
+            txt_Telefone.TabIndex = 13;
             // 
-            // textBox4
+            // txt_Cpf
             // 
-            textBox4.Location = new Point(318, 101);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(160, 23);
-            textBox4.TabIndex = 12;
+            txt_Cpf.Location = new Point(318, 101);
+            txt_Cpf.Name = "txt_Cpf";
+            txt_Cpf.Size = new Size(160, 23);
+            txt_Cpf.TabIndex = 12;
             // 
-            // textBox3
+            // txt_Nome
             // 
-            textBox3.Location = new Point(122, 49);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(269, 23);
-            textBox3.TabIndex = 11;
+            txt_Nome.Location = new Point(122, 49);
+            txt_Nome.Name = "txt_Nome";
+            txt_Nome.Size = new Size(269, 23);
+            txt_Nome.TabIndex = 11;
             // 
-            // textBox1
+            // txt_ID
             // 
-            textBox1.Location = new Point(58, 49);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(49, 23);
-            textBox1.TabIndex = 10;
+            txt_ID.Location = new Point(58, 49);
+            txt_ID.Name = "txt_ID";
+            txt_ID.Size = new Size(49, 23);
+            txt_ID.TabIndex = 10;
             // 
             // chk_Ativo
             // 
@@ -270,42 +293,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             // 
-            // btn_Editar
-            // 
-            btn_Editar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_Editar.Image = Properties.Resources.Edit;
-            btn_Editar.Location = new Point(189, 239);
-            btn_Editar.Name = "btn_Editar";
-            btn_Editar.Size = new Size(65, 54);
-            btn_Editar.TabIndex = 20;
-            btn_Editar.Text = "&Editar";
-            btn_Editar.TextImageRelation = TextImageRelation.ImageAboveText;
-            btn_Editar.UseVisualStyleBackColor = true;
-            // 
-            // btn_Delete
-            // 
-            btn_Delete.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_Delete.Image = Properties.Resources.Delete;
-            btn_Delete.Location = new Point(277, 239);
-            btn_Delete.Name = "btn_Delete";
-            btn_Delete.Size = new Size(65, 54);
-            btn_Delete.TabIndex = 21;
-            btn_Delete.Text = "&Delete";
-            btn_Delete.TextImageRelation = TextImageRelation.ImageAboveText;
-            btn_Delete.UseVisualStyleBackColor = true;
-            // 
-            // btn_Cancelar
-            // 
-            btn_Cancelar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_Cancelar.Image = Properties.Resources.Cancel;
-            btn_Cancelar.Location = new Point(361, 239);
-            btn_Cancelar.Name = "btn_Cancelar";
-            btn_Cancelar.Size = new Size(65, 54);
-            btn_Cancelar.TabIndex = 22;
-            btn_Cancelar.Text = "&Cancelar";
-            btn_Cancelar.TextImageRelation = TextImageRelation.ImageAboveText;
-            btn_Cancelar.UseVisualStyleBackColor = true;
-            // 
             // FrmCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -339,17 +326,16 @@
         private Label lbl_ID;
         private DataGridView dataGridView1;
         private CheckBox chk_Ativo;
-        private TextBox textBox1;
-        private TextBox textBox3;
-        private TextBox textBox4;
+        private TextBox txt_ID;
+        private TextBox txt_Nome;
+        private TextBox txt_Cpf;
         private Label lbl_DataCad;
-        private TextBox textBox5;
-        private DateTimePicker dateTimePicker2;
-        private DateTimePicker dateTimePicker1;
-        private TextBox textBox7;
+        private TextBox txt_Telefone;
+        private DateTimePicker DateNasc;
+        private DateTimePicker DateCad;
+        private TextBox txt_Email;
         private Button btn_Inserir;
         private Button btn_Cancelar;
-        private Button btn_Delete;
         private Button btn_Editar;
     }
 }
