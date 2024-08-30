@@ -30,6 +30,7 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            btn_Inserir = new Button();
             dateTimePicker2 = new DateTimePicker();
             dateTimePicker1 = new DateTimePicker();
             textBox7 = new TextBox();
@@ -49,6 +50,9 @@
             dataGridView1 = new DataGridView();
             textBox2 = new TextBox();
             groupBox1 = new GroupBox();
+            btn_Editar = new Button();
+            btn_Delete = new Button();
+            btn_Cancelar = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -63,11 +67,15 @@
             tabControl1.Location = new Point(115, 34);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(545, 351);
+            tabControl1.Size = new Size(548, 351);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(btn_Cancelar);
+            tabPage1.Controls.Add(btn_Delete);
+            tabPage1.Controls.Add(btn_Editar);
+            tabPage1.Controls.Add(btn_Inserir);
             tabPage1.Controls.Add(dateTimePicker2);
             tabPage1.Controls.Add(dateTimePicker1);
             tabPage1.Controls.Add(textBox7);
@@ -86,36 +94,48 @@
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(537, 323);
+            tabPage1.Size = new Size(540, 323);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Dados Cliente";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btn_Inserir
+            // 
+            btn_Inserir.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_Inserir.Image = Properties.Resources.Add;
+            btn_Inserir.Location = new Point(101, 239);
+            btn_Inserir.Name = "btn_Inserir";
+            btn_Inserir.Size = new Size(65, 54);
+            btn_Inserir.TabIndex = 19;
+            btn_Inserir.Text = "&Inserir";
+            btn_Inserir.TextImageRelation = TextImageRelation.ImageAboveText;
+            btn_Inserir.UseVisualStyleBackColor = true;
+            // 
             // dateTimePicker2
             // 
-            dateTimePicker2.Location = new Point(72, 176);
+            dateTimePicker2.Location = new Point(243, 153);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(246, 23);
             dateTimePicker2.TabIndex = 18;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(72, 237);
+            dateTimePicker1.Location = new Point(243, 199);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(246, 23);
             dateTimePicker1.TabIndex = 17;
             // 
             // textBox7
             // 
-            textBox7.Location = new Point(235, 121);
+            textBox7.Location = new Point(58, 101);
             textBox7.Name = "textBox7";
-            textBox7.Size = new Size(174, 23);
+            textBox7.Size = new Size(254, 23);
             textBox7.TabIndex = 16;
             // 
             // lbl_DataCad
             // 
             lbl_DataCad.AutoSize = true;
-            lbl_DataCad.Location = new Point(72, 219);
+            lbl_DataCad.Location = new Point(243, 181);
             lbl_DataCad.Name = "lbl_DataCad";
             lbl_DataCad.Size = new Size(99, 15);
             lbl_DataCad.TabIndex = 15;
@@ -123,28 +143,28 @@
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(382, 60);
+            textBox5.Location = new Point(58, 152);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(141, 23);
+            textBox5.Size = new Size(160, 23);
             textBox5.TabIndex = 13;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(72, 121);
+            textBox4.Location = new Point(318, 101);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(137, 23);
+            textBox4.Size = new Size(160, 23);
             textBox4.TabIndex = 12;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(136, 60);
+            textBox3.Location = new Point(122, 49);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(216, 23);
+            textBox3.Size = new Size(269, 23);
             textBox3.TabIndex = 11;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(72, 60);
+            textBox1.Location = new Point(58, 49);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(49, 23);
             textBox1.TabIndex = 10;
@@ -152,7 +172,7 @@
             // chk_Ativo
             // 
             chk_Ativo.AutoSize = true;
-            chk_Ativo.Location = new Point(444, 121);
+            chk_Ativo.Location = new Point(412, 51);
             chk_Ativo.Name = "chk_Ativo";
             chk_Ativo.Size = new Size(54, 19);
             chk_Ativo.TabIndex = 9;
@@ -162,7 +182,7 @@
             // lbl_DataNasc
             // 
             lbl_DataNasc.AutoSize = true;
-            lbl_DataNasc.Location = new Point(72, 158);
+            lbl_DataNasc.Location = new Point(243, 135);
             lbl_DataNasc.Name = "lbl_DataNasc";
             lbl_DataNasc.Size = new Size(93, 15);
             lbl_DataNasc.TabIndex = 6;
@@ -171,7 +191,7 @@
             // lbl_Email
             // 
             lbl_Email.AutoSize = true;
-            lbl_Email.Location = new Point(235, 103);
+            lbl_Email.Location = new Point(68, 83);
             lbl_Email.Name = "lbl_Email";
             lbl_Email.Size = new Size(36, 15);
             lbl_Email.TabIndex = 5;
@@ -180,7 +200,7 @@
             // lbl_Telefone
             // 
             lbl_Telefone.AutoSize = true;
-            lbl_Telefone.Location = new Point(382, 42);
+            lbl_Telefone.Location = new Point(58, 134);
             lbl_Telefone.Name = "lbl_Telefone";
             lbl_Telefone.Size = new Size(51, 15);
             lbl_Telefone.TabIndex = 4;
@@ -189,7 +209,7 @@
             // lbl_CPF
             // 
             lbl_CPF.AutoSize = true;
-            lbl_CPF.Location = new Point(72, 103);
+            lbl_CPF.Location = new Point(318, 83);
             lbl_CPF.Name = "lbl_CPF";
             lbl_CPF.Size = new Size(28, 15);
             lbl_CPF.TabIndex = 3;
@@ -198,7 +218,7 @@
             // lbl_Nome
             // 
             lbl_Nome.AutoSize = true;
-            lbl_Nome.Location = new Point(136, 42);
+            lbl_Nome.Location = new Point(122, 31);
             lbl_Nome.Name = "lbl_Nome";
             lbl_Nome.Size = new Size(96, 15);
             lbl_Nome.TabIndex = 2;
@@ -207,7 +227,7 @@
             // lbl_ID
             // 
             lbl_ID.AutoSize = true;
-            lbl_ID.Location = new Point(72, 42);
+            lbl_ID.Location = new Point(58, 31);
             lbl_ID.Name = "lbl_ID";
             lbl_ID.Size = new Size(18, 15);
             lbl_ID.TabIndex = 1;
@@ -220,7 +240,7 @@
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(775, 385);
+            tabPage2.Size = new Size(540, 323);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Enderecos";
             tabPage2.UseVisualStyleBackColor = true;
@@ -249,6 +269,42 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
+            // 
+            // btn_Editar
+            // 
+            btn_Editar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_Editar.Image = Properties.Resources.Edit;
+            btn_Editar.Location = new Point(189, 239);
+            btn_Editar.Name = "btn_Editar";
+            btn_Editar.Size = new Size(65, 54);
+            btn_Editar.TabIndex = 20;
+            btn_Editar.Text = "&Editar";
+            btn_Editar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btn_Editar.UseVisualStyleBackColor = true;
+            // 
+            // btn_Delete
+            // 
+            btn_Delete.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_Delete.Image = Properties.Resources.Delete;
+            btn_Delete.Location = new Point(277, 239);
+            btn_Delete.Name = "btn_Delete";
+            btn_Delete.Size = new Size(65, 54);
+            btn_Delete.TabIndex = 21;
+            btn_Delete.Text = "&Delete";
+            btn_Delete.TextImageRelation = TextImageRelation.ImageAboveText;
+            btn_Delete.UseVisualStyleBackColor = true;
+            // 
+            // btn_Cancelar
+            // 
+            btn_Cancelar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_Cancelar.Image = Properties.Resources.Cancel;
+            btn_Cancelar.Location = new Point(361, 239);
+            btn_Cancelar.Name = "btn_Cancelar";
+            btn_Cancelar.Size = new Size(65, 54);
+            btn_Cancelar.TabIndex = 22;
+            btn_Cancelar.Text = "&Cancelar";
+            btn_Cancelar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btn_Cancelar.UseVisualStyleBackColor = true;
             // 
             // FrmCliente
             // 
@@ -291,5 +347,9 @@
         private DateTimePicker dateTimePicker2;
         private DateTimePicker dateTimePicker1;
         private TextBox textBox7;
+        private Button btn_Inserir;
+        private Button btn_Cancelar;
+        private Button btn_Delete;
+        private Button btn_Editar;
     }
 }

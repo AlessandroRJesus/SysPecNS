@@ -62,7 +62,7 @@
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUsuarios.Columns.AddRange(new DataGridViewColumn[] { clnId, clnNome, clnEmail, clnNivel, clnAtivo });
             dgvUsuarios.GridColor = SystemColors.InactiveCaption;
-            dgvUsuarios.Location = new Point(34, 274);
+            dgvUsuarios.Location = new Point(56, 275);
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.ReadOnly = true;
             dgvUsuarios.RowHeadersVisible = false;
@@ -118,7 +118,7 @@
             btn_Inserir.FlatStyle = FlatStyle.Flat;
             btn_Inserir.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_Inserir.Image = Properties.Resources.Add;
-            btn_Inserir.Location = new Point(106, 177);
+            btn_Inserir.Location = new Point(137, 184);
             btn_Inserir.Name = "btn_Inserir";
             btn_Inserir.Size = new Size(64, 59);
             btn_Inserir.TabIndex = 5;
@@ -244,7 +244,7 @@
             btn_editar.FlatStyle = FlatStyle.Flat;
             btn_editar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_editar.Image = Properties.Resources.Edit;
-            btn_editar.Location = new Point(187, 177);
+            btn_editar.Location = new Point(218, 184);
             btn_editar.Name = "btn_editar";
             btn_editar.Size = new Size(64, 59);
             btn_editar.TabIndex = 6;
@@ -260,7 +260,7 @@
             btn_Deletar.FlatStyle = FlatStyle.Flat;
             btn_Deletar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_Deletar.Image = Properties.Resources.Delete;
-            btn_Deletar.Location = new Point(265, 177);
+            btn_Deletar.Location = new Point(296, 184);
             btn_Deletar.Name = "btn_Deletar";
             btn_Deletar.Size = new Size(64, 59);
             btn_Deletar.TabIndex = 7;
@@ -270,7 +270,7 @@
             // 
             // txt_Busca
             // 
-            txt_Busca.Location = new Point(34, 248);
+            txt_Busca.Location = new Point(56, 249);
             txt_Busca.Name = "txt_Busca";
             txt_Busca.Size = new Size(501, 23);
             txt_Busca.TabIndex = 8;
@@ -284,7 +284,7 @@
             btn_Cancelar.FlatStyle = FlatStyle.Flat;
             btn_Cancelar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_Cancelar.Image = Properties.Resources.Cancel;
-            btn_Cancelar.Location = new Point(349, 176);
+            btn_Cancelar.Location = new Point(380, 183);
             btn_Cancelar.Name = "btn_Cancelar";
             btn_Cancelar.Size = new Size(64, 59);
             btn_Cancelar.TabIndex = 12;
