@@ -33,8 +33,8 @@
             btn_Cancelar = new Button();
             btn_Editar = new Button();
             btn_Inserir = new Button();
-            DateNasc = new DateTimePicker();
-            DateCad = new DateTimePicker();
+            DataNasc = new DateTimePicker();
+            DataCad = new DateTimePicker();
             txt_Email = new TextBox();
             lbl_DataCad = new Label();
             txt_Telefone = new TextBox();
@@ -74,8 +74,8 @@
             tabPage1.Controls.Add(btn_Cancelar);
             tabPage1.Controls.Add(btn_Editar);
             tabPage1.Controls.Add(btn_Inserir);
-            tabPage1.Controls.Add(DateNasc);
-            tabPage1.Controls.Add(DateCad);
+            tabPage1.Controls.Add(DataNasc);
+            tabPage1.Controls.Add(DataCad);
             tabPage1.Controls.Add(txt_Email);
             tabPage1.Controls.Add(lbl_DataCad);
             tabPage1.Controls.Add(txt_Telefone);
@@ -134,19 +134,19 @@
             btn_Inserir.UseVisualStyleBackColor = true;
             btn_Inserir.Click += btn_Inserir_Click;
             // 
-            // DateNasc
+            // DataNasc
             // 
-            DateNasc.Location = new Point(243, 153);
-            DateNasc.Name = "DateNasc";
-            DateNasc.Size = new Size(246, 23);
-            DateNasc.TabIndex = 18;
+            DataNasc.Location = new Point(243, 153);
+            DataNasc.Name = "DataNasc";
+            DataNasc.Size = new Size(246, 23);
+            DataNasc.TabIndex = 18;
             // 
-            // DateCad
+            // DataCad
             // 
-            DateCad.Location = new Point(243, 199);
-            DateCad.Name = "DateCad";
-            DateCad.Size = new Size(246, 23);
-            DateCad.TabIndex = 17;
+            DataCad.Location = new Point(243, 199);
+            DataCad.Name = "DataCad";
+            DataCad.Size = new Size(246, 23);
+            DataCad.TabIndex = 17;
             // 
             // txt_Email
             // 
@@ -331,8 +331,8 @@
         private TextBox txt_Cpf;
         private Label lbl_DataCad;
         private TextBox txt_Telefone;
-        private DateTimePicker DateNasc;
-        private DateTimePicker DateCad;
+        private DateTimePicker DataNasc;
+        private DateTimePicker DataCad;
         private TextBox txt_Email;
         private Button btn_Inserir;
         private Button btn_Cancelar;
