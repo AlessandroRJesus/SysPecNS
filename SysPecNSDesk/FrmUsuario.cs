@@ -44,7 +44,7 @@ namespace SysPecNSDesk
             {
                 txt_ID.Text = usuario.Id.ToString();
                 MessageBox.Show($"O usuário {usuario.Nome}," +
-                    $"Foi inserido com sucesso, com o ID {usuario.Id}");
+                $"Foi inserido com sucesso, com o ID {usuario.Id}");
                 txt_ID.Clear();
                 txt_Nome.Clear();
                 txt_Email.Clear();
@@ -123,8 +123,10 @@ namespace SysPecNSDesk
             int id = 0;
             int posicaoLinha = dgvUsuarios.CurrentRow.Index;
             id = Convert.ToInt32(dgvUsuarios.Rows[posicaoLinha].Cells[0].Value);
-            MessageBox.Show(id.ToString()); 
+            MessageBox.Show(id.ToString());
         }
+
+       
     }
 }
 

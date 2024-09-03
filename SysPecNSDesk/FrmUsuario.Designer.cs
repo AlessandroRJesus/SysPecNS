@@ -200,6 +200,7 @@
             cmbNivel.Name = "cmbNivel";
             cmbNivel.Size = new Size(109, 23);
             cmbNivel.TabIndex = 2;
+      
             // 
             // label6
             // 
