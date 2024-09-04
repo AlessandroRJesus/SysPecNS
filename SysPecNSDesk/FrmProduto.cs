@@ -39,21 +39,21 @@ namespace SysPecNSDesk
 
             var lista = Produto.ObterLista();
             dgvProdutos.Rows.Add();
-            int Count = 0;
+            int count = 0;
             foreach (var produto in lista)
             {
                 dgvProdutos.Rows.Add();
-                dgvProdutos.Rows[Count].Cells[0].Value = produto.Id;
-                dgvProdutos.Rows[Count].Cells[1].Value = produto.CodBar;
-                dgvProdutos.Rows[Count].Cells[2].Value = produto.Descricao;
-                dgvProdutos.Rows[Count].Cells[3].Value = produto.ValorUnit;
-                dgvProdutos.Rows[Count].Cells[4].Value = produto.UnidadeVenda;
-                dgvProdutos.Rows[Count].Cells[5].Value = produto.Categoria.Nome;
-                dgvProdutos.Rows[Count].Cells[6].Value = produto.EstoqueMinimo;
-                dgvProdutos.Rows[Count].Cells[7].Value = produto.ClasseDesconto;
-                dgvProdutos.Rows[Count].Cells[8].Value = produto.DataCad;
+                dgvProdutos.Rows[count].Cells[0].Value = produto.Id;
+                dgvProdutos.Rows[count].Cells[1].Value = produto.CodBar;
+                dgvProdutos.Rows[count].Cells[2].Value = produto.Descricao;
+                dgvProdutos.Rows[count].Cells[3].Value = produto.ValorUnit;
+                dgvProdutos.Rows[count].Cells[4].Value = produto.EstoqueMinimo;
+                dgvProdutos.Rows[count].Cells[5].Value = produto.ClasseDesconto;
+                dgvProdutos.Rows[count].Cells[6].Value = produto.DataCad;
+                dgvProdutos.Rows[count].Cells[7].Value = produto.ValorUnit;
+                dgvProdutos.Rows[count].Cells[8].Value = produto.UnidadeVenda;
 
-                Count++;
+                count++;
             }
         }
 
@@ -70,6 +70,15 @@ namespace SysPecNSDesk
                 MessageBox.Show($"Produto gravado com sucesso com ID {produto.Id}");
                 FrmProduto_Load(sender, e);
             }
+        }
+        private void LimpaControles()
+        {
+            txt_CodBar.Clear();
+            txt_ValorUnit.Clear();
+            txt_UnidadeVenda.Clear();
+            txt_Descricao.Clear();
+            txt_Desconto.Clear();
+            np_EstoqueMinimo.Value = 0;
         }
 
         private void btn_Consultar_Click(object sender, EventArgs e)
@@ -88,8 +97,45 @@ namespace SysPecNSDesk
             }
             else
             {
-
+                if (txt_Id.Text.Length > 0)
+                {
+                    Produto produto = Produto.ObterPorId(int.Parse(txt_Id.Text));
+                    txt_CodBar.Text = produto.CodBar;
+                    txt_ValorUnit.Text = Convert.ToString(produto.ValorUnit);
+                    txt_Descricao.Text = produto.Descricao;
+                    txt_Desconto.Text = produto.ClasseDesconto.ToString();
+                    txt_UnidadeVenda.Text = produto.UnidadeVenda;
+                    //npEstoqueMinimo.Value = produto.EstoqueMinimo;
+                    cmb_Categoria.SelectedIndex =
+                    cmb_Categoria.FindString(produto.Categoria.Nome);
+                    btn_Editar.Enabled = true;
+                }
             }
         }
+
+        private void btn_Editar_Click(object sender, EventArgs e)
+        {
+            Produto produto = new(
+            int.Parse(txt_Id.Text),
+            txt_CodBar.Text,
+            txt_Descricao.Text,
+            double.Parse(txt_ValorUnit.Text),
+            txt_UnidadeVenda.Text,
+            Categoria.ObterPorId(Convert.ToInt32(cmb_Categoria.SelectedValue)),
+            (double)np_EstoqueMinimo.Value,
+            double.Parse(txt_Desconto.Text),
+            null,
+            null
+            );
+            
+            produto.Atualizar(); //grava as alterações no banco;
+            MessageBox.Show($"Produto {produto.Id} - {produto.Descricao} atualizar com sucesso");
+            btn_Editar.Enabled = false;
+            txt_Id.ReadOnly = true;
+            btn_Consultar.Text = "&Consultar";
+            LimpaControles();
+            FrmProduto_Load(sender, e);
+        }
+
     }
 }

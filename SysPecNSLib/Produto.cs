@@ -8,23 +8,23 @@ namespace SysPecNSLib
 {
     public class Produto
     {
-        public int Id {get; set;}
-        public string? CodBar {get; set;}
-        public string? Descricao {get; set;}
-        public double ValorUnit {get; set;}
-        public string? UnidadeVenda {get; set;}
-        public Categoria? Categoria {get; set;}
-        public double EstoqueMinimo {get; set;}
-        public  double ClasseDesconto {get; set;}
-        public byte[]? Imagem {get;set;}
-        public DateTime DataCad {get; set;}
+        public int Id { get; set; }
+        public string? CodBar { get; set; }
+        public string? Descricao { get; set; }
+        public double ValorUnit { get; set; }
+        public string? UnidadeVenda { get; set; }
+        public Categoria? Categoria { get; set; }
+        public double EstoqueMinimo { get; set; }
+        public double ClasseDesconto { get; set; }
+        public byte[]? Imagem { get; set; }
+        public DateTime? DataCad { get; set; }
 
         public Produto()
         {
-            
+
         }
 
-        public Produto(int id, string? codBar, string? descricao, double valorUnit, string? unidadeVenda, Categoria? categoria, double estoqueMinimo, double classeDesconto, byte[]? imagem, DateTime dataCad)
+        public Produto(int id, string? codBar, string? descricao, double valorUnit, string? unidadeVenda, Categoria? categoria, double estoqueMinimo, double classeDesconto, byte[]? imagem, DateTime? dataCad)
         {
             Id = id;
             CodBar = codBar;
@@ -38,7 +38,7 @@ namespace SysPecNSLib
             DataCad = dataCad;
         }
 
-        public Produto(string? codBar, string? descricao, double valorUnit, string? unidadeVenda, Categoria? categoria, double estoqueMinimo, double classeDesconto,DateTime dataCad)
+        public Produto(string? codBar, string? descricao, double valorUnit, string? unidadeVenda, Categoria? categoria, double estoqueMinimo, double classeDesconto, DateTime? dataCad)
         {
             CodBar = codBar;
             Descricao = descricao;
@@ -49,7 +49,7 @@ namespace SysPecNSLib
             ClasseDesconto = classeDesconto;
             DataCad = dataCad;
         }
-        public Produto(string? codBar, string? descricao, double valorUnit, string? unidadeVenda, Categoria? categoria, double estoqueMinimo, double classeDesconto, byte[]? imagem, DateTime dataCad)
+        public Produto(string? codBar, string? descricao, double valorUnit, string? unidadeVenda, Categoria? categoria, double estoqueMinimo, double classeDesconto, byte[]? imagem, DateTime? dataCad)
         {
             CodBar = codBar;
             Descricao = descricao;
@@ -118,7 +118,7 @@ namespace SysPecNSLib
                 Categoria.ObterPorId(dr.GetInt32(5)),
                 dr.GetDouble(6),
                 dr.GetDouble(7),
-                (byte[])dr.GetValue(8),
+                null,
                 dr.GetDateTime(9)
                 );
             }

@@ -57,6 +57,8 @@
             clnEstoqueMin = new DataGridViewTextBoxColumn();
             clnDesconto = new DataGridViewTextBoxColumn();
             clnDataCad = new DataGridViewTextBoxColumn();
+            clnValorUnic = new DataGridViewTextBoxColumn();
+            clnUnidadeVenda = new DataGridViewTextBoxColumn();
             gpb_Produtos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)np_EstoqueMinimo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProdutos).BeginInit();
@@ -64,6 +66,7 @@
             // 
             // gpb_Produtos
             // 
+            gpb_Produtos.BackColor = Color.Aqua;
             gpb_Produtos.Controls.Add(btn_Consultar);
             gpb_Produtos.Controls.Add(btn_Editar);
             gpb_Produtos.Controls.Add(btn_Adicionar);
@@ -92,7 +95,8 @@
             // 
             // btn_Consultar
             // 
-            btn_Consultar.Location = new Point(407, 209);
+            btn_Consultar.Cursor = Cursors.Hand;
+            btn_Consultar.Location = new Point(479, 214);
             btn_Consultar.Name = "btn_Consultar";
             btn_Consultar.Size = new Size(75, 23);
             btn_Consultar.TabIndex = 20;
@@ -102,16 +106,20 @@
             // 
             // btn_Editar
             // 
-            btn_Editar.Location = new Point(306, 209);
+            btn_Editar.Cursor = Cursors.Hand;
+            btn_Editar.Enabled = false;
+            btn_Editar.Location = new Point(378, 214);
             btn_Editar.Name = "btn_Editar";
             btn_Editar.Size = new Size(75, 23);
             btn_Editar.TabIndex = 19;
             btn_Editar.Text = "&Editar";
             btn_Editar.UseVisualStyleBackColor = true;
+            btn_Editar.Click += btn_Editar_Click;
             // 
             // btn_Adicionar
             // 
-            btn_Adicionar.Location = new Point(198, 209);
+            btn_Adicionar.Cursor = Cursors.Hand;
+            btn_Adicionar.Location = new Point(270, 214);
             btn_Adicionar.Name = "btn_Adicionar";
             btn_Adicionar.Size = new Size(75, 23);
             btn_Adicionar.TabIndex = 18;
@@ -121,8 +129,9 @@
             // 
             // cmb_Categoria
             // 
+            cmb_Categoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cmb_Categoria.FormattingEnabled = true;
-            cmb_Categoria.Location = new Point(66, 156);
+            cmb_Categoria.Location = new Point(138, 161);
             cmb_Categoria.Name = "cmb_Categoria";
             cmb_Categoria.Size = new Size(315, 23);
             cmb_Categoria.TabIndex = 17;
@@ -130,42 +139,42 @@
             // 
             // np_EstoqueMinimo
             // 
-            np_EstoqueMinimo.Location = new Point(313, 104);
+            np_EstoqueMinimo.Location = new Point(385, 109);
             np_EstoqueMinimo.Name = "np_EstoqueMinimo";
             np_EstoqueMinimo.Size = new Size(34, 23);
             np_EstoqueMinimo.TabIndex = 16;
             // 
             // txt_CodBar
             // 
-            txt_CodBar.Location = new Point(125, 55);
+            txt_CodBar.Location = new Point(197, 60);
             txt_CodBar.Name = "txt_CodBar";
             txt_CodBar.Size = new Size(117, 23);
             txt_CodBar.TabIndex = 15;
             // 
             // txt_ValorUnit
             // 
-            txt_ValorUnit.Location = new Point(66, 104);
+            txt_ValorUnit.Location = new Point(138, 109);
             txt_ValorUnit.Name = "txt_ValorUnit";
             txt_ValorUnit.Size = new Size(120, 23);
             txt_ValorUnit.TabIndex = 14;
             // 
             // txt_UnidadeVenda
             // 
-            txt_UnidadeVenda.Location = new Point(192, 104);
+            txt_UnidadeVenda.Location = new Point(264, 109);
             txt_UnidadeVenda.Name = "txt_UnidadeVenda";
             txt_UnidadeVenda.Size = new Size(100, 23);
             txt_UnidadeVenda.TabIndex = 13;
             // 
             // txt_Desconto
             // 
-            txt_Desconto.Location = new Point(66, 209);
+            txt_Desconto.Location = new Point(138, 214);
             txt_Desconto.Name = "txt_Desconto";
             txt_Desconto.Size = new Size(100, 23);
             txt_Desconto.TabIndex = 11;
             // 
             // txt_Descricao
             // 
-            txt_Descricao.Location = new Point(248, 55);
+            txt_Descricao.Location = new Point(320, 60);
             txt_Descricao.Name = "txt_Descricao";
             txt_Descricao.Size = new Size(176, 23);
             txt_Descricao.TabIndex = 9;
@@ -173,7 +182,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(313, 86);
+            label7.Location = new Point(385, 91);
             label7.Name = "label7";
             label7.Size = new Size(94, 15);
             label7.TabIndex = 8;
@@ -182,7 +191,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(66, 191);
+            label6.Location = new Point(138, 196);
             label6.Name = "label6";
             label6.Size = new Size(57, 15);
             label6.TabIndex = 7;
@@ -191,7 +200,7 @@
             // lbl_Categoria
             // 
             lbl_Categoria.AutoSize = true;
-            lbl_Categoria.Location = new Point(66, 138);
+            lbl_Categoria.Location = new Point(138, 143);
             lbl_Categoria.Name = "lbl_Categoria";
             lbl_Categoria.Size = new Size(58, 15);
             lbl_Categoria.TabIndex = 6;
@@ -200,7 +209,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(248, 37);
+            label4.Location = new Point(320, 42);
             label4.Name = "label4";
             label4.Size = new Size(58, 15);
             label4.TabIndex = 5;
@@ -209,7 +218,7 @@
             // lbl_UnidadeVenda
             // 
             lbl_UnidadeVenda.AutoSize = true;
-            lbl_UnidadeVenda.Location = new Point(192, 85);
+            lbl_UnidadeVenda.Location = new Point(264, 90);
             lbl_UnidadeVenda.Name = "lbl_UnidadeVenda";
             lbl_UnidadeVenda.Size = new Size(102, 15);
             lbl_UnidadeVenda.TabIndex = 4;
@@ -218,7 +227,7 @@
             // lbl_ValorUnit
             // 
             lbl_ValorUnit.AutoSize = true;
-            lbl_ValorUnit.Location = new Point(66, 85);
+            lbl_ValorUnit.Location = new Point(138, 90);
             lbl_ValorUnit.Name = "lbl_ValorUnit";
             lbl_ValorUnit.Size = new Size(78, 15);
             lbl_ValorUnit.TabIndex = 3;
@@ -227,7 +236,7 @@
             // lbl_CodBar
             // 
             lbl_CodBar.AutoSize = true;
-            lbl_CodBar.Location = new Point(125, 36);
+            lbl_CodBar.Location = new Point(197, 41);
             lbl_CodBar.Name = "lbl_CodBar";
             lbl_CodBar.Size = new Size(97, 15);
             lbl_CodBar.TabIndex = 2;
@@ -235,7 +244,7 @@
             // 
             // txt_Id
             // 
-            txt_Id.Location = new Point(66, 55);
+            txt_Id.Location = new Point(138, 60);
             txt_Id.Name = "txt_Id";
             txt_Id.Size = new Size(50, 23);
             txt_Id.TabIndex = 1;
@@ -243,7 +252,7 @@
             // lbl_ID
             // 
             lbl_ID.AutoSize = true;
-            lbl_ID.Location = new Point(66, 37);
+            lbl_ID.Location = new Point(138, 42);
             lbl_ID.Name = "lbl_ID";
             lbl_ID.Size = new Size(18, 15);
             lbl_ID.TabIndex = 0;
@@ -252,10 +261,11 @@
             // lbl_Produtos
             // 
             lbl_Produtos.AutoSize = true;
-            lbl_Produtos.Font = new Font("Bernard MT Condensed", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_Produtos.Location = new Point(338, 9);
+            lbl_Produtos.Font = new Font("Gill Sans Ultra Bold", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_Produtos.ForeColor = SystemColors.ControlText;
+            lbl_Produtos.Location = new Point(274, 9);
             lbl_Produtos.Name = "lbl_Produtos";
-            lbl_Produtos.Size = new Size(133, 34);
+            lbl_Produtos.Size = new Size(210, 42);
             lbl_Produtos.TabIndex = 1;
             lbl_Produtos.Text = "PRODUTOS";
             // 
@@ -264,12 +274,12 @@
             dgvProdutos.AllowUserToAddRows = false;
             dgvProdutos.AllowUserToDeleteRows = false;
             dgvProdutos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProdutos.Columns.AddRange(new DataGridViewColumn[] { clnid, clnCodigo, clnDescricao, clnValorUnit, clnEstoqueMin, clnDesconto, clnDataCad });
-            dgvProdutos.Location = new Point(82, 341);
+            dgvProdutos.Columns.AddRange(new DataGridViewColumn[] { clnid, clnCodigo, clnDescricao, clnValorUnit, clnEstoqueMin, clnDesconto, clnDataCad, clnValorUnic, clnUnidadeVenda });
+            dgvProdutos.Location = new Point(91, 341);
             dgvProdutos.Name = "dgvProdutos";
             dgvProdutos.ReadOnly = true;
             dgvProdutos.RowHeadersVisible = false;
-            dgvProdutos.Size = new Size(647, 150);
+            dgvProdutos.Size = new Size(646, 260);
             dgvProdutos.TabIndex = 2;
             dgvProdutos.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -322,11 +332,25 @@
             clnDataCad.ReadOnly = true;
             clnDataCad.Width = 110;
             // 
+            // clnValorUnic
+            // 
+            clnValorUnic.HeaderText = "Valor Unico";
+            clnValorUnic.Name = "clnValorUnic";
+            clnValorUnic.ReadOnly = true;
+            // 
+            // clnUnidadeVenda
+            // 
+            clnUnidadeVenda.HeaderText = "Unidade Venda";
+            clnUnidadeVenda.Name = "clnUnidadeVenda";
+            clnUnidadeVenda.ReadOnly = true;
+            clnUnidadeVenda.Width = 120;
+            // 
             // FrmProduto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 491);
+            BackColor = Color.Cyan;
+            ClientSize = new Size(800, 598);
             Controls.Add(dgvProdutos);
             Controls.Add(lbl_Produtos);
             Controls.Add(gpb_Produtos);
@@ -374,5 +398,7 @@
         private DataGridViewTextBoxColumn clnEstoqueMin;
         private DataGridViewTextBoxColumn clnDesconto;
         private DataGridViewTextBoxColumn clnDataCad;
+        private DataGridViewTextBoxColumn clnValorUnic;
+        private DataGridViewTextBoxColumn clnUnidadeVenda;
     }
 }
