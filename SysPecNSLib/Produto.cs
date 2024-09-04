@@ -74,6 +74,18 @@ namespace SysPecNSLib
             ClasseDesconto = classeDesconto;
             Imagem = imagem;
         }
+        public Produto( string? codBar, string? descricao, double valorUnit, string? unidadeVenda, Categoria? categoria, double estoqueMinimo, double classeDesconto)
+        {
+          
+            CodBar = codBar;
+            Descricao = descricao;
+            ValorUnit = valorUnit;
+            UnidadeVenda = unidadeVenda;
+            Categoria = categoria;
+            EstoqueMinimo = estoqueMinimo;
+            ClasseDesconto = classeDesconto;
+        
+        }
 
         public void Inserir()
         {

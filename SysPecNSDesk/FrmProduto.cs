@@ -59,16 +59,36 @@ namespace SysPecNSDesk
 
         private void btn_Adicionar_Click(object sender, EventArgs e)
         {
-            Produto produto = new(txt_CodBar.Text,txt_Descricao.Text, 
-            double.Parse(txt_ValorUnit.Text),txt_UnidadeVenda.Text,
+            Produto produto = new(txt_CodBar.Text, txt_Descricao.Text,
+            double.Parse(txt_ValorUnit.Text), gpb_Produtos.Text,
             Categoria.ObterPorId(Convert.ToInt32(cmb_Categoria.SelectedValue)),
-            (int)np_EstoqueMinimo.Value,double.Parse(txt_Desconto.Text)
-                );
+            (int)np_EstoqueMinimo.Value, double.Parse(txt_Desconto.Text)
+            );
             produto.Inserir();
-            if(produto.Id>0)
+            if (produto.Id > 0)
             {
                 MessageBox.Show($"Produto gravado com sucesso com ID {produto.Id}");
                 FrmProduto_Load(sender, e);
+            }
+        }
+
+        private void btn_Consultar_Click(object sender, EventArgs e)
+        {
+            if (btn_Consultar.Text == "&Consultar")
+            {
+                txt_CodBar.Clear();
+                txt_ValorUnit.Clear();
+                txt_UnidadeVenda.Clear();
+                txt_Descricao.Clear();
+                txt_Desconto.Clear();
+                np_EstoqueMinimo.Value = 0;
+                btn_Consultar.Text = "&Obter por ID";
+                txt_Id.Focus();
+                txt_Id.ReadOnly = false;
+            }
+            else
+            {
+
             }
         }
     }
