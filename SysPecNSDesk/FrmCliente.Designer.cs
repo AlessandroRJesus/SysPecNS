@@ -30,6 +30,7 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            dgv_Clientes = new DataGridView();
             btn_Cancelar = new Button();
             btn_Editar = new Button();
             btn_Inserir = new Button();
@@ -50,11 +51,16 @@
             lbl_ID = new Label();
             tabPage2 = new TabPage();
             groupBox1 = new GroupBox();
-            dtg_clientes = new DataGridView();
+            label1 = new Label();
+            clnID = new DataGridViewTextBoxColumn();
+            clnNome = new DataGridViewTextBoxColumn();
+            clnEmail = new DataGridViewTextBoxColumn();
+            clnCpf = new DataGridViewTextBoxColumn();
+            clnTelefone = new DataGridViewTextBoxColumn();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_Clientes).BeginInit();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dtg_clientes).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -69,7 +75,7 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(dtg_clientes);
+            tabPage1.Controls.Add(dgv_Clientes);
             tabPage1.Controls.Add(btn_Cancelar);
             tabPage1.Controls.Add(btn_Editar);
             tabPage1.Controls.Add(btn_Inserir);
@@ -95,6 +101,17 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Dados Cliente";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dgv_Clientes
+            // 
+            dgv_Clientes.BackgroundColor = Color.White;
+            dgv_Clientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_Clientes.Columns.AddRange(new DataGridViewColumn[] { clnID, clnNome, clnEmail, clnCpf, clnTelefone });
+            dgv_Clientes.Location = new Point(45, 296);
+            dgv_Clientes.Name = "dgv_Clientes";
+            dgv_Clientes.RowHeadersVisible = false;
+            dgv_Clientes.Size = new Size(444, 153);
+            dgv_Clientes.TabIndex = 2;
             // 
             // btn_Cancelar
             // 
@@ -261,43 +278,79 @@
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(540, 323);
+            tabPage2.Size = new Size(540, 455);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Enderecos";
             tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = Color.Aqua;
             groupBox1.Controls.Add(tabControl1);
-            groupBox1.Location = new Point(79, 24);
+            groupBox1.Location = new Point(92, 78);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(687, 561);
+            groupBox1.Size = new Size(630, 507);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Cliente e Enderecos";
             // 
-            // dtg_clientes
+            // label1
             // 
-            dtg_clientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtg_clientes.Location = new Point(0, 300);
-            dtg_clientes.Name = "dtg_clientes";
-            dtg_clientes.Size = new Size(537, 153);
-            dtg_clientes.TabIndex = 2;
+            label1.AutoSize = true;
+            label1.Font = new Font("Showcard Gothic", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(275, 39);
+            label1.Name = "label1";
+            label1.Size = new Size(321, 36);
+            label1.TabIndex = 2;
+            label1.Text = "Cliente e Endereço";
+            // 
+            // clnID
+            // 
+            clnID.HeaderText = "ID";
+            clnID.Name = "clnID";
+            clnID.ReadOnly = true;
+            clnID.Width = 40;
+            // 
+            // clnNome
+            // 
+            clnNome.HeaderText = "Nome";
+            clnNome.Name = "clnNome";
+            clnNome.ReadOnly = true;
+            // 
+            // clnEmail
+            // 
+            clnEmail.HeaderText = "Email";
+            clnEmail.Name = "clnEmail";
+            clnEmail.ReadOnly = true;
+            // 
+            // clnCpf
+            // 
+            clnCpf.HeaderText = "CPF";
+            clnCpf.Name = "clnCpf";
+            clnCpf.ReadOnly = true;
+            // 
+            // clnTelefone
+            // 
+            clnTelefone.HeaderText = "Telefone";
+            clnTelefone.Name = "clnTelefone";
             // 
             // FrmCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Aqua;
             ClientSize = new Size(800, 597);
+            Controls.Add(label1);
             Controls.Add(groupBox1);
             Name = "FrmCliente";
             Text = "FrmCliente";
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_Clientes).EndInit();
             groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dtg_clientes).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -324,6 +377,12 @@
         private Button btn_Inserir;
         private Button btn_Cancelar;
         private Button btn_Editar;
-        private DataGridView dtg_clientes;
+        private DataGridView dgv_Clientes;
+        private Label label1;
+        private DataGridViewTextBoxColumn clnID;
+        private DataGridViewTextBoxColumn clnNome;
+        private DataGridViewTextBoxColumn clnEmail;
+        private DataGridViewTextBoxColumn clnCpf;
+        private DataGridViewTextBoxColumn clnTelefone;
     }
 }
