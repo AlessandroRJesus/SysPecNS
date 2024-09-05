@@ -23,11 +23,11 @@ namespace SysPecNSDesk
 
             Cliente cliente = new(
                 txt_Nome.Text,
-                txt_Email.Text,
                 txt_Cpf.Text,
                 txt_Telefone.Text,
+                txt_Email.Text,
                 DataCad.Value,
-                DataNasc.Value =DateTime.Now
+                DataNasc.Value = DateTime.Now
                 );
             cliente.Inserir();
             if (cliente.Id > 0)
@@ -36,10 +36,11 @@ namespace SysPecNSDesk
                 MessageBox.Show($"O Cliente {cliente.Nome},Foi inserido com sucesso, com o ID {cliente.Id}");
                 txt_ID.Clear();
                 txt_Nome.Clear();
-                txt_Email.Clear();
                 txt_Cpf.Clear();
-                txt_Telefone.Clear(); 
+                txt_Telefone.Clear();
+                txt_Email.Clear();
                 txt_Nome.Focus();
+
             }
             else
             {
@@ -47,6 +48,31 @@ namespace SysPecNSDesk
             }
         }
 
-       
+        private void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            if (VerificaControles())
+            {
+                var msg = MessageBox.Show("Deseja continuar o cadastro?", "cadastro de usuário", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                if (msg == DialogResult.Yes) this.Close();
+            }
+            else
+            {
+                Close();
+            }
+        }
+        private bool VerificaControles()
+        {
+            if (txt_Nome.Text != string.Empty
+             || txt_Cpf.Text != string.Empty
+             || txt_Telefone.Text != string.Empty
+             || txt_Email.Text != string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

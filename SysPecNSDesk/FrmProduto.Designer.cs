@@ -273,13 +273,15 @@
             // 
             dgvProdutos.AllowUserToAddRows = false;
             dgvProdutos.AllowUserToDeleteRows = false;
+            dgvProdutos.BackgroundColor = Color.White;
             dgvProdutos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProdutos.Columns.AddRange(new DataGridViewColumn[] { clnid, clnCodigo, clnDescricao, clnValorUnit, clnEstoqueMin, clnDesconto, clnDataCad, clnValorUnic, clnUnidadeVenda });
-            dgvProdutos.Location = new Point(91, 341);
+            dgvProdutos.GridColor = Color.White;
+            dgvProdutos.Location = new Point(106, 341);
             dgvProdutos.Name = "dgvProdutos";
             dgvProdutos.ReadOnly = true;
             dgvProdutos.RowHeadersVisible = false;
-            dgvProdutos.Size = new Size(646, 260);
+            dgvProdutos.Size = new Size(646, 256);
             dgvProdutos.TabIndex = 2;
             dgvProdutos.CellContentClick += dataGridView1_CellContentClick;
             // 

@@ -200,7 +200,6 @@
             cmbNivel.Name = "cmbNivel";
             cmbNivel.Size = new Size(109, 23);
             cmbNivel.TabIndex = 2;
-      
             // 
             // label6
             // 
@@ -252,6 +251,7 @@
             btn_editar.Text = "&Editar";
             btn_editar.TextImageRelation = TextImageRelation.ImageAboveText;
             btn_editar.UseVisualStyleBackColor = false;
+            btn_editar.Click += btn_editar_Click;
             // 
             // btn_Deletar
             // 

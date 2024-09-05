@@ -49,28 +49,27 @@
             lbl_Nome = new Label();
             lbl_ID = new Label();
             tabPage2 = new TabPage();
-            dataGridView1 = new DataGridView();
-            textBox2 = new TextBox();
             groupBox1 = new GroupBox();
+            dtg_clientes = new DataGridView();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
-            tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dtg_clientes).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
-            tabControl1.Location = new Point(115, 34);
+            tabControl1.Location = new Point(71, 13);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(548, 351);
+            tabControl1.Size = new Size(548, 483);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(dtg_clientes);
             tabPage1.Controls.Add(btn_Cancelar);
             tabPage1.Controls.Add(btn_Editar);
             tabPage1.Controls.Add(btn_Inserir);
@@ -92,7 +91,7 @@
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(540, 323);
+            tabPage1.Size = new Size(540, 455);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Dados Cliente";
             tabPage1.UseVisualStyleBackColor = true;
@@ -108,6 +107,7 @@
             btn_Cancelar.Text = "&Cancelar";
             btn_Cancelar.TextImageRelation = TextImageRelation.ImageAboveText;
             btn_Cancelar.UseVisualStyleBackColor = true;
+            btn_Cancelar.Click += btn_Cancelar_Click;
             // 
             // btn_Editar
             // 
@@ -258,8 +258,6 @@
             // 
             // tabPage2
             // 
-            tabPage2.Controls.Add(dataGridView1);
-            tabPage2.Controls.Add(textBox2);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -268,46 +266,37 @@
             tabPage2.Text = "Enderecos";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(146, 210);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(240, 150);
-            dataGridView1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(15, 24);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 0;
-            // 
             // groupBox1
             // 
             groupBox1.Controls.Add(tabControl1);
-            groupBox1.Location = new Point(1, 3);
+            groupBox1.Location = new Point(79, 24);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(795, 428);
+            groupBox1.Size = new Size(687, 561);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
+            groupBox1.Text = "Cliente e Enderecos";
+            // 
+            // dtg_clientes
+            // 
+            dtg_clientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtg_clientes.Location = new Point(0, 300);
+            dtg_clientes.Name = "dtg_clientes";
+            dtg_clientes.Size = new Size(537, 153);
+            dtg_clientes.TabIndex = 2;
             // 
             // FrmCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 597);
             Controls.Add(groupBox1);
             Name = "FrmCliente";
             Text = "FrmCliente";
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
-            tabPage2.ResumeLayout(false);
-            tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dtg_clientes).EndInit();
             ResumeLayout(false);
         }
 
@@ -317,14 +306,12 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private GroupBox groupBox1;
-        private TextBox textBox2;
         private Label lbl_DataNasc;
         private Label lbl_Email;
         private Label lbl_Telefone;
         private Label lbl_CPF;
         private Label lbl_Nome;
         private Label lbl_ID;
-        private DataGridView dataGridView1;
         private CheckBox chk_Ativo;
         private TextBox txt_ID;
         private TextBox txt_Nome;
@@ -337,5 +324,6 @@
         private Button btn_Inserir;
         private Button btn_Cancelar;
         private Button btn_Editar;
+        private DataGridView dtg_clientes;
     }
 }
