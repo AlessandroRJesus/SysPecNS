@@ -94,7 +94,7 @@ namespace SysPecNSDesk
             if (VerificaControles())
             {
                 var msg = MessageBox.Show("Deseja continuar o cadastro?", "cadastro de usuário", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-                if (msg == DialogResult.Yes) this.Close();
+                if (msg == DialogResult.No) this.Close();
             }
             else
             {

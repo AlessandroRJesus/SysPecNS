@@ -31,11 +31,6 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             dgv_Cliente = new DataGridView();
-            clnID = new DataGridViewTextBoxColumn();
-            clnNome = new DataGridViewTextBoxColumn();
-            clnEmail = new DataGridViewTextBoxColumn();
-            clnCpf = new DataGridViewTextBoxColumn();
-            clnTelefone = new DataGridViewTextBoxColumn();
             btn_Cancelar = new Button();
             btn_Editar = new Button();
             btn_Inserir = new Button();
@@ -57,6 +52,14 @@
             tabPage2 = new TabPage();
             groupBox1 = new GroupBox();
             label1 = new Label();
+            clnID = new DataGridViewTextBoxColumn();
+            clnNome = new DataGridViewTextBoxColumn();
+            clnCpf = new DataGridViewTextBoxColumn();
+            clnTelefone = new DataGridViewTextBoxColumn();
+            clnEmail = new DataGridViewTextBoxColumn();
+            clnDataNasc = new DataGridViewTextBoxColumn();
+            clnDataCad = new DataGridViewTextBoxColumn();
+            clnAtivo = new DataGridViewTextBoxColumn();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Cliente).BeginInit();
@@ -104,45 +107,18 @@
             // 
             // dgv_Cliente
             // 
+            dgv_Cliente.AllowUserToAddRows = false;
+            dgv_Cliente.AllowUserToDeleteRows = false;
             dgv_Cliente.BackgroundColor = Color.White;
             dgv_Cliente.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Cliente.Columns.AddRange(new DataGridViewColumn[] { clnID, clnNome, clnEmail, clnCpf, clnTelefone });
-            dgv_Cliente.Location = new Point(45, 296);
+            dgv_Cliente.Columns.AddRange(new DataGridViewColumn[] { clnID, clnNome, clnCpf, clnTelefone, clnEmail, clnDataNasc, clnDataCad, clnAtivo });
+            dgv_Cliente.Location = new Point(6, 288);
             dgv_Cliente.Name = "dgv_Cliente";
+            dgv_Cliente.ReadOnly = true;
             dgv_Cliente.RowHeadersVisible = false;
-            dgv_Cliente.Size = new Size(444, 153);
+            dgv_Cliente.Size = new Size(534, 153);
             dgv_Cliente.TabIndex = 2;
             dgv_Cliente.CellContentClick += dgv_Clientes_CellContentClick;
-            // 
-            // clnID
-            // 
-            clnID.HeaderText = "ID";
-            clnID.Name = "clnID";
-            clnID.ReadOnly = true;
-            clnID.Width = 40;
-            // 
-            // clnNome
-            // 
-            clnNome.HeaderText = "Nome";
-            clnNome.Name = "clnNome";
-            clnNome.ReadOnly = true;
-            // 
-            // clnEmail
-            // 
-            clnEmail.HeaderText = "Email";
-            clnEmail.Name = "clnEmail";
-            clnEmail.ReadOnly = true;
-            // 
-            // clnCpf
-            // 
-            clnCpf.HeaderText = "CPF";
-            clnCpf.Name = "clnCpf";
-            clnCpf.ReadOnly = true;
-            // 
-            // clnTelefone
-            // 
-            clnTelefone.HeaderText = "Telefone";
-            clnTelefone.Name = "clnTelefone";
             // 
             // btn_Cancelar
             // 
@@ -329,11 +305,62 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Showcard Gothic", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(275, 39);
+            label1.Location = new Point(277, 9);
             label1.Name = "label1";
             label1.Size = new Size(321, 36);
             label1.TabIndex = 2;
             label1.Text = "Cliente e Endereço";
+            // 
+            // clnID
+            // 
+            clnID.HeaderText = "ID";
+            clnID.Name = "clnID";
+            clnID.ReadOnly = true;
+            clnID.Width = 50;
+            // 
+            // clnNome
+            // 
+            clnNome.HeaderText = "Nome";
+            clnNome.Name = "clnNome";
+            clnNome.ReadOnly = true;
+            clnNome.Width = 150;
+            // 
+            // clnCpf
+            // 
+            clnCpf.HeaderText = "CPF";
+            clnCpf.Name = "clnCpf";
+            clnCpf.ReadOnly = true;
+            // 
+            // clnTelefone
+            // 
+            clnTelefone.HeaderText = "Telefone";
+            clnTelefone.Name = "clnTelefone";
+            clnTelefone.ReadOnly = true;
+            // 
+            // clnEmail
+            // 
+            clnEmail.HeaderText = "Email";
+            clnEmail.Name = "clnEmail";
+            clnEmail.ReadOnly = true;
+            // 
+            // clnDataNasc
+            // 
+            clnDataNasc.HeaderText = "Data de Nascimento";
+            clnDataNasc.Name = "clnDataNasc";
+            clnDataNasc.ReadOnly = true;
+            // 
+            // clnDataCad
+            // 
+            clnDataCad.HeaderText = "Data de Cadastro";
+            clnDataCad.Name = "clnDataCad";
+            clnDataCad.ReadOnly = true;
+            // 
+            // clnAtivo
+            // 
+            clnAtivo.HeaderText = "Ativo";
+            clnAtivo.Name = "clnAtivo";
+            clnAtivo.ReadOnly = true;
+            clnAtivo.Width = 50;
             // 
             // FrmCliente
             // 
@@ -382,8 +409,11 @@
         private Label label1;
         private DataGridViewTextBoxColumn clnID;
         private DataGridViewTextBoxColumn clnNome;
-        private DataGridViewTextBoxColumn clnEmail;
         private DataGridViewTextBoxColumn clnCpf;
         private DataGridViewTextBoxColumn clnTelefone;
+        private DataGridViewTextBoxColumn clnEmail;
+        private DataGridViewTextBoxColumn clnDataNasc;
+        private DataGridViewTextBoxColumn clnDataCad;
+        private DataGridViewTextBoxColumn clnAtivo;
     }
 }

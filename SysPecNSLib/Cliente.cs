@@ -64,9 +64,9 @@ namespace SysPecNSLib
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "sp_cliente_insert";
             cmd.Parameters.AddWithValue("spnome", Nome);
-            cmd.Parameters.AddWithValue("spemail", Email);
             cmd.Parameters.AddWithValue("spcpf", Cpf);
             cmd.Parameters.AddWithValue("sptelefone", Telefone);
+            cmd.Parameters.AddWithValue("spemail", Email);
             cmd.Parameters.AddWithValue("spdatanasc", Data_nasc);
             cmd.Parameters.AddWithValue("spdatacad", Data_cad);
             cmd.Parameters.AddWithValue("spativo", Ativo);

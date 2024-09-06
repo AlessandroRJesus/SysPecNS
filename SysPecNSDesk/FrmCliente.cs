@@ -53,7 +53,7 @@ namespace SysPecNSDesk
             if (VerificaControles())
             {
                 var msg = MessageBox.Show("Deseja continuar o cadastro?", "cadastro de usuário", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-                if (msg == DialogResult.Yes) this.Close();
+                if (msg == DialogResult.No) this.Close();
             }
             else
             {
@@ -72,6 +72,27 @@ namespace SysPecNSDesk
             else
             {
                 return false;
+            }
+        }
+        private void CarregaGrid(string nome = "")
+        {
+            // Preenchendo o datagrid com os Cliente
+            var lista = Cliente.ObterLista(nome);
+            dgv_Cliente.Rows.Clear();
+            int cont = 0;
+            foreach (var clinte in lista)
+            {
+                dgv_Cliente.Rows.Add();
+                dgv_Cliente.Rows[cont].Cells[0].Value = clinte.Id;
+                dgv_Cliente.Rows[cont].Cells[1].Value = clinte.Nome;
+                dgv_Cliente.Rows[cont].Cells[2].Value = clinte.Cpf;
+                dgv_Cliente.Rows[cont].Cells[3].Value = clinte.Telefone;
+                dgv_Cliente.Rows[cont].Cells[4].Value = clinte.Email;
+                dgv_Cliente.Rows[cont].Cells[5].Value = clinte.Data_nasc;
+                dgv_Cliente.Rows[cont].Cells[6].Value = clinte.Data_cad;
+                dgv_Cliente.Rows[cont].Cells[7].Value = clinte.Ativo;
+
+                cont++;
             }
         }
 

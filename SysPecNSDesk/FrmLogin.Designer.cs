@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             lbl = new Label();
             btn_Logar = new Button();
             btn_Cancelar = new Button();
@@ -116,9 +117,11 @@
             Controls.Add(btn_Cancelar);
             Controls.Add(btn_Logar);
             Controls.Add(lbl);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Tag = "";
+   
             ResumeLayout(false);
             PerformLayout();
         }
