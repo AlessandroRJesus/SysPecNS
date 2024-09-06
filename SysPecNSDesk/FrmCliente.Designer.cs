@@ -30,7 +30,12 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            dgv_Clientes = new DataGridView();
+            dgv_Cliente = new DataGridView();
+            clnID = new DataGridViewTextBoxColumn();
+            clnNome = new DataGridViewTextBoxColumn();
+            clnEmail = new DataGridViewTextBoxColumn();
+            clnCpf = new DataGridViewTextBoxColumn();
+            clnTelefone = new DataGridViewTextBoxColumn();
             btn_Cancelar = new Button();
             btn_Editar = new Button();
             btn_Inserir = new Button();
@@ -52,14 +57,9 @@
             tabPage2 = new TabPage();
             groupBox1 = new GroupBox();
             label1 = new Label();
-            clnID = new DataGridViewTextBoxColumn();
-            clnNome = new DataGridViewTextBoxColumn();
-            clnEmail = new DataGridViewTextBoxColumn();
-            clnCpf = new DataGridViewTextBoxColumn();
-            clnTelefone = new DataGridViewTextBoxColumn();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgv_Clientes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_Cliente).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -75,7 +75,7 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(dgv_Clientes);
+            tabPage1.Controls.Add(dgv_Cliente);
             tabPage1.Controls.Add(btn_Cancelar);
             tabPage1.Controls.Add(btn_Editar);
             tabPage1.Controls.Add(btn_Inserir);
@@ -102,22 +102,53 @@
             tabPage1.Text = "Dados Cliente";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dgv_Clientes
+            // dgv_Cliente
             // 
-            dgv_Clientes.BackgroundColor = Color.White;
-            dgv_Clientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Clientes.Columns.AddRange(new DataGridViewColumn[] { clnID, clnNome, clnEmail, clnCpf, clnTelefone });
-            dgv_Clientes.Location = new Point(45, 296);
-            dgv_Clientes.Name = "dgv_Clientes";
-            dgv_Clientes.RowHeadersVisible = false;
-            dgv_Clientes.Size = new Size(444, 153);
-            dgv_Clientes.TabIndex = 2;
+            dgv_Cliente.BackgroundColor = Color.White;
+            dgv_Cliente.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_Cliente.Columns.AddRange(new DataGridViewColumn[] { clnID, clnNome, clnEmail, clnCpf, clnTelefone });
+            dgv_Cliente.Location = new Point(45, 296);
+            dgv_Cliente.Name = "dgv_Cliente";
+            dgv_Cliente.RowHeadersVisible = false;
+            dgv_Cliente.Size = new Size(444, 153);
+            dgv_Cliente.TabIndex = 2;
+            dgv_Cliente.CellContentClick += dgv_Clientes_CellContentClick;
+            // 
+            // clnID
+            // 
+            clnID.HeaderText = "ID";
+            clnID.Name = "clnID";
+            clnID.ReadOnly = true;
+            clnID.Width = 40;
+            // 
+            // clnNome
+            // 
+            clnNome.HeaderText = "Nome";
+            clnNome.Name = "clnNome";
+            clnNome.ReadOnly = true;
+            // 
+            // clnEmail
+            // 
+            clnEmail.HeaderText = "Email";
+            clnEmail.Name = "clnEmail";
+            clnEmail.ReadOnly = true;
+            // 
+            // clnCpf
+            // 
+            clnCpf.HeaderText = "CPF";
+            clnCpf.Name = "clnCpf";
+            clnCpf.ReadOnly = true;
+            // 
+            // clnTelefone
+            // 
+            clnTelefone.HeaderText = "Telefone";
+            clnTelefone.Name = "clnTelefone";
             // 
             // btn_Cancelar
             // 
             btn_Cancelar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_Cancelar.Image = Properties.Resources.Cancel;
-            btn_Cancelar.Location = new Point(306, 240);
+            btn_Cancelar.Location = new Point(318, 228);
             btn_Cancelar.Name = "btn_Cancelar";
             btn_Cancelar.Size = new Size(65, 54);
             btn_Cancelar.TabIndex = 22;
@@ -130,7 +161,7 @@
             // 
             btn_Editar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_Editar.Image = Properties.Resources.Edit;
-            btn_Editar.Location = new Point(214, 240);
+            btn_Editar.Location = new Point(226, 228);
             btn_Editar.Name = "btn_Editar";
             btn_Editar.Size = new Size(65, 54);
             btn_Editar.TabIndex = 20;
@@ -142,7 +173,7 @@
             // 
             btn_Inserir.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_Inserir.Image = Properties.Resources.Add;
-            btn_Inserir.Location = new Point(126, 240);
+            btn_Inserir.Location = new Point(138, 228);
             btn_Inserir.Name = "btn_Inserir";
             btn_Inserir.Size = new Size(65, 54);
             btn_Inserir.TabIndex = 19;
@@ -304,36 +335,6 @@
             label1.TabIndex = 2;
             label1.Text = "Cliente e Endereço";
             // 
-            // clnID
-            // 
-            clnID.HeaderText = "ID";
-            clnID.Name = "clnID";
-            clnID.ReadOnly = true;
-            clnID.Width = 40;
-            // 
-            // clnNome
-            // 
-            clnNome.HeaderText = "Nome";
-            clnNome.Name = "clnNome";
-            clnNome.ReadOnly = true;
-            // 
-            // clnEmail
-            // 
-            clnEmail.HeaderText = "Email";
-            clnEmail.Name = "clnEmail";
-            clnEmail.ReadOnly = true;
-            // 
-            // clnCpf
-            // 
-            clnCpf.HeaderText = "CPF";
-            clnCpf.Name = "clnCpf";
-            clnCpf.ReadOnly = true;
-            // 
-            // clnTelefone
-            // 
-            clnTelefone.HeaderText = "Telefone";
-            clnTelefone.Name = "clnTelefone";
-            // 
             // FrmCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -347,7 +348,7 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgv_Clientes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_Cliente).EndInit();
             groupBox1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -377,7 +378,7 @@
         private Button btn_Inserir;
         private Button btn_Cancelar;
         private Button btn_Editar;
-        private DataGridView dgv_Clientes;
+        private DataGridView dgv_Cliente;
         private Label label1;
         private DataGridViewTextBoxColumn clnID;
         private DataGridViewTextBoxColumn clnNome;
