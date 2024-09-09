@@ -58,6 +58,7 @@
             lbl_Nome = new Label();
             lbl_ID = new Label();
             tabPage2 = new TabPage();
+            comboBox1 = new ComboBox();
             label8 = new Label();
             txt_Cidade = new TextBox();
             label7 = new Label();
@@ -75,7 +76,6 @@
             lbl = new Label();
             groupBox1 = new GroupBox();
             label1 = new Label();
-            comboBox1 = new ComboBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Cliente).BeginInit();
@@ -90,7 +90,7 @@
             tabControl1.Location = new Point(71, 13);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(548, 483);
+            tabControl1.Size = new Size(559, 483);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -117,7 +117,7 @@
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(540, 455);
+            tabPage1.Size = new Size(551, 455);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Dados Cliente";
             tabPage1.UseVisualStyleBackColor = true;
@@ -133,7 +133,7 @@
             dgv_Cliente.Name = "dgv_Cliente";
             dgv_Cliente.ReadOnly = true;
             dgv_Cliente.RowHeadersVisible = false;
-            dgv_Cliente.Size = new Size(534, 153);
+            dgv_Cliente.Size = new Size(539, 153);
             dgv_Cliente.TabIndex = 2;
             dgv_Cliente.CellContentClick += dgv_Clientes_CellContentClick;
             // 
@@ -374,6 +374,15 @@
             tabPage2.Text = "Enderecos";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Rondônia (RO) ", "Acre (AC) ", "Amazonas (AM) ", "Roraima (RR) ", "Pará (PA) ", "Amapá (AP) ", "Tocantins (TO) ", "Maranhão (MA)", "Piauí (PI)", "Ceará (CE)", "Rio Grande do Norte (RN) ", "Paraíba (PB) ", "Pernambuco (PE) ", "Alagoas (AL)", "Sergipe (SE) ", "Bahia (BA) ", "Minas Gerais (MG) ", "Espírito Santo (ES) ", "Rio de Janeiro (RJ) ", "São Paulo (SP) ", "Paraná (PR) ", "Santa Catarina (SC) ", "Rio Grande do Sul (RS) ", "Mato Grosso do Sul (MS) ", "Mato Grosso (MT)", "Goiás (GO) ", "Distrito Federal (DF)  " });
+            comboBox1.Location = new Point(389, 129);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 23);
+            comboBox1.TabIndex = 17;
+            // 
             // label8
             // 
             label8.AutoSize = true;
@@ -515,15 +524,6 @@
             label1.Size = new Size(321, 36);
             label1.TabIndex = 2;
             label1.Text = "Cliente e Endereço";
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Rondônia (RO) ", "Acre (AC) ", "Amazonas (AM) ", "Roraima (RR) ", "Pará (PA) ", "Amapá (AP) ", "Tocantins (TO) ", "Maranhão (MA)", "Piauí (PI)", "Ceará (CE)", "Rio Grande do Norte (RN) ", "Paraíba (PB) ", "Pernambuco (PE) ", "Alagoas (AL)", "Sergipe (SE) ", "Bahia (BA) ", "Minas Gerais (MG) ", "Espírito Santo (ES) ", "Rio de Janeiro (RJ) ", "São Paulo (SP) ", "Paraná (PR) ", "Santa Catarina (SC) ", "Rio Grande do Sul (RS) ", "Mato Grosso do Sul (MS) ", "Mato Grosso (MT)", "Goiás (GO) ", "Distrito Federal (DF)  " });
-            comboBox1.Location = new Point(389, 129);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 17;
             // 
             // FrmCliente
             // 
