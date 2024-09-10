@@ -75,33 +75,31 @@ namespace SysPecNSLib
         }
         public static Pedido ObterPorId(int id)
         {
-
             Pedido pedido = new();
             var cmd = Banco.Abrir();
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = $"select *from pedidos where id = {id} ";
+            cmd.CommandText = $"select * from pedidos where id = {id}";
             var dr = cmd.ExecuteReader();
             // retorna 1 registro ou nenhum registro
             if (dr.Read())
             {
-
-               pedido = new(
-
+                pedido = new(
                     dr.GetInt32(0),
                     Usuario.ObterPorId(dr.GetInt32(1)),
                     Cliente.ObterPorId(dr.GetInt32(2)),
                     dr.GetDateTime(3),
                     dr.GetString(4),
-                    dr.GetDouble(5),
-                   //[Incluir Lista de Itens]
-                     ItemPedido.ObterListaPorPedido(dr.GetInt32(0))
-                    );
-                
+                    dr.GetDouble(5)
+                     //[Incluir Lista de Itens]
+                    , ItemPedido.ObterListaPorPedido(dr.GetInt32(0))
+                     );
             }
+
             return pedido;
         }
+      
 
-            public void Atualizardesconto()
+        public void Atualizardesconto()
             {
                 var cmd = Banco.Abrir();
                 cmd.CommandType = System.Data.CommandType.Text;
@@ -134,7 +132,7 @@ namespace SysPecNSLib
                         dr.GetDateTime(3),
                         dr.GetString(4),
                         dr.GetDouble(5)
-                        )
+                          , ItemPedido.ObterListaPorPedido(dr.GetInt32(0)))
                         );
                     }
                 return pedidos;
@@ -157,6 +155,7 @@ namespace SysPecNSLib
                     dr.GetDateTime(3),
                     dr.GetString(4),
                     dr.GetDouble(5)
+                     , ItemPedido.ObterListaPorPedido(dr.GetInt32(0))
                     )
                       );
 
@@ -165,16 +164,31 @@ namespace SysPecNSLib
             }    
 
 
-            public static List<Pedido> ObterListaPorUsuario(int id)
-            {
+             public static List<Pedido> ObterListaPorUsuario(int id)
+             {
                 List<Pedido> pedidos = new();
                 var cmd = Banco.Abrir();
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.CommandText = $"select *from pedidos where usuario_id = {id}";
-                return pedidos;
-            }
+                var dr = cmd.ExecuteReader();
+                 while (dr.Read())
+                 {
+                pedidos.Add(
+                    new(
+                    dr.GetInt32(0),
+                    Usuario.ObterPorId(dr.GetInt32(1)),
+                    Cliente.ObterPorId(dr.GetInt32(2)),
+                    dr.GetDateTime(3),
+                    dr.GetString(4),
+                    dr.GetDouble(5)
+                     //[Incluir Lista de Itens]
+                     ,ItemPedido.ObterListaPorPedido(dr.GetInt32(0))
+                     )
+                    );
+                 }
+                  return pedidos;
+             }
 
 
-        
     }
 }

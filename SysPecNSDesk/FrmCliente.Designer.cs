@@ -121,6 +121,7 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Dados Cliente";
             tabPage1.UseVisualStyleBackColor = true;
+            tabPage1.Click += tabPage1_Click;
             // 
             // dgv_Cliente
             // 
@@ -369,7 +370,7 @@
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(540, 455);
+            tabPage2.Size = new Size(551, 455);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Enderecos";
             tabPage2.UseVisualStyleBackColor = true;

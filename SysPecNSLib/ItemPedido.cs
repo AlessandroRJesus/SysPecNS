@@ -49,7 +49,7 @@ namespace SysPecNSLib
             cmd.Parameters.AddWithValue(" spdesconto", Desconto);
             Id = Convert.ToInt32(cmd.ExecuteScalar()); 
         }
-        public List<ItemPedido> ObterListaPorPedido(int id)
+        public static List<ItemPedido> ObterListaPorPedido(int id)
         {
             List<ItemPedido> Itens = new();
             var cmd = Banco.Abrir();
