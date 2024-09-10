@@ -237,6 +237,7 @@
             chkAtivo.TabIndex = 10;
             chkAtivo.Text = "Ativo";
             chkAtivo.UseVisualStyleBackColor = true;
+         
             // 
             // btn_editar
             // 
@@ -253,8 +254,8 @@
             btn_editar.Text = "&Editar";
             btn_editar.TextImageRelation = TextImageRelation.ImageAboveText;
             btn_editar.UseVisualStyleBackColor = false;
-            btn_editar.Click += btn_editar_Click;
-            // 
+            
+            //
             // btn_Deletar
             // 
             btn_Deletar.BackColor = Color.White;

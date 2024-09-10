@@ -119,8 +119,6 @@ namespace SysPecNSLib
             {
                 comandosSQL.CommandText = $"select *from cliente where nome like '%{nome}%' order by nome limit 10";
             }
-
-
             var dr = comandosSQL.ExecuteReader();
             while (dr.Read())
             {
@@ -147,10 +145,8 @@ namespace SysPecNSLib
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "sp_cliente_insert";
             cmd.Parameters.AddWithValue("spnome", Nome);
-            cmd.Parameters.AddWithValue("spemail", Email);
             cmd.Parameters.AddWithValue("sptelefone", Telefone);
             cmd.Parameters.AddWithValue("spdatanasc", Data_nasc);
-            cmd.Parameters.AddWithValue("spativo", Ativo);
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
         }

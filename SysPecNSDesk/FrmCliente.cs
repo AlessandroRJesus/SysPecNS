@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace SysPecNSDesk
 {
@@ -32,9 +33,9 @@ namespace SysPecNSDesk
             cliente.Inserir();
             if (cliente.Id > 0)
             {
-                txt_ID.Text = cliente.Id.ToString();
+                txt_IdCliente.Text = cliente.Id.ToString();
                 MessageBox.Show($"O Cliente {cliente.Nome},Foi inserido com sucesso, com o ID {cliente.Id}");
-                txt_ID.Clear();
+                txt_IdCliente.Clear();
                 txt_Nome.Clear();
                 txt_Cpf.Clear();
                 txt_Telefone.Clear();
@@ -104,14 +105,23 @@ namespace SysPecNSDesk
             MessageBox.Show(id.ToString());
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void txt_Busca_TextChanged(object sender, EventArgs e)
         {
-
+            if (txt_Busca.Text.Length > 0)
+            {
+                CarregaGrid(txt_Busca.Text);
+            }
+            else
+            {
+                CarregaGrid();
+            }
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void btn_InserirEndereco_Click(object sender, EventArgs e)
         {
-
+           
         }
     }
+    
 }
+
