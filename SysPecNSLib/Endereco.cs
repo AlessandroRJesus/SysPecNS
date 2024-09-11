@@ -23,21 +23,21 @@ namespace SysPecNSLib
 
         public Endereco()
         {
-           
+            Cliente = new(); 
         }
-        public Endereco(int id, Cliente Idcliente, string? cep, string? logradouro, string? numero, string? complemento, string? bairro, string? cidade, string? uf, string? tipo)
-        {
-            Id = id;
-            Cliente = Idcliente;
-            Cep = cep;
-            Logradouro = logradouro;
-            Numero = numero;
-            Complemento = complemento;
-            Bairro = bairro;
-            Cidade = cidade;
-            Uf = uf;
-            Tipo = tipo;
-        }
+        //public Endereco(int id, Cliente Idcliente, string? cep, string? logradouro, string? numero, string? complemento, string? bairro, string? cidade, string? uf, string? tipo)
+        //{
+        //    Id = id;
+        //    Cliente = Idcliente;
+        //    Cep = cep;
+        //    Logradouro = logradouro;
+        //    Numero = numero;
+        //    Complemento = complemento;
+        //    Bairro = bairro;
+        //    Cidade = cidade;
+        //    Uf = uf;
+        //    Tipo = tipo;
+        //}
         public Endereco(int id, Cliente Idcliente, string? cep, string? logradouro, string? numero, string? bairro, string? cidade, string? uf, string? tipo)
         {
             Id = id;
@@ -50,6 +50,20 @@ namespace SysPecNSLib
             Uf = uf;
             Tipo = tipo;
         }
+
+        public Endereco(Cliente cliente, string? cep, string? logradouro, string? numero, string? complemento, string? bairro, string? cidade, string? uf, string? tipo)
+        {
+            Cliente = cliente;
+            Cep = cep;
+            Logradouro = logradouro;
+            Numero = numero;
+            Complemento = complemento;
+            Bairro = bairro;
+            Cidade = cidade;
+            Uf = uf;
+            Tipo = tipo;
+        }
+
         public void Inserir()
         {
             //Inserir o endereco do cliente no Banco de dados 
@@ -82,16 +96,15 @@ namespace SysPecNSLib
             if (dr.Read())
             {
                 endereco = new(
-                    dr.GetInt32(0),
-                    Cliente.ObterPorId(dr.GetInt32(1)),
+                    Cliente.ObterPorId(dr.GetInt32(0)),
+                    dr.GetString(1),
                     dr.GetString(2),
                     dr.GetString(3),
                     dr.GetString(4),
                     dr.GetString(5),
                     dr.GetString(6),
                     dr.GetString(7),
-                    dr.GetString(8),
-                    dr.GetString(9)
+                    dr.GetString(8)
                     );
             }
 
@@ -118,16 +131,15 @@ namespace SysPecNSLib
             {
                 lista.Add(
                     new(
-                    dr.GetInt32(0),
-                    Cliente.ObterPorId(dr.GetInt32(1)),
+                    Cliente.ObterPorId(dr.GetInt32(0)),
+                    dr.GetString(1),
                     dr.GetString(2),
                     dr.GetString(3),
                     dr.GetString(4),
                     dr.GetString(5),
                     dr.GetString(6),
                     dr.GetString(7),
-                    dr.GetString(8),
-                    dr.GetString(9)
+                    dr.GetString(8)
                         )
                     );
             }

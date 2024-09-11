@@ -1,4 +1,5 @@
-﻿using SysPecNSLib;
+﻿using MySqlX.XDevAPI;
+using SysPecNSLib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace SysPecNSDesk
             InitializeComponent();
         }
 
+        //btn_inserir serve para inserir os clientes no Banco de dados
         private void btn_Inserir_Click(object sender, EventArgs e)
         {
 
@@ -29,7 +31,7 @@ namespace SysPecNSDesk
                 txt_Email.Text,
                 DataCad.Value,
                 DataNasc.Value = DateTime.Now
-                );
+                ); 
             cliente.Inserir();
             if (cliente.Id > 0)
             {
@@ -41,14 +43,14 @@ namespace SysPecNSDesk
                 txt_Telefone.Clear();
                 txt_Email.Clear();
                 txt_Nome.Focus();
-
+                txt_EnderecoId.Text = cliente.Id.ToString();
             }
             else
             {
                 MessageBox.Show("Falha ao gravar o cliente!");
             }
         }
-
+        //Botão para decidir se vai continuar o cadastro ou não do cliente
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
             if (VerificaControles())
@@ -61,6 +63,8 @@ namespace SysPecNSDesk
                 Close();
             }
         }
+
+        //Se o cliente não preencher nenhum campo ele o sistema vai entender que é nulo  
         private bool VerificaControles()
         {
             if (txt_Nome.Text != string.Empty
@@ -75,23 +79,24 @@ namespace SysPecNSDesk
                 return false;
             }
         }
+        //carregarGrid serve para salvar na tabela os campos do cliente
         private void CarregaGrid(string nome = "")
         {
-            // Preenchendo o datagrid com os Cliente
+            // Preenchendo o datagrid com os campos do Cliente
             var lista = Cliente.ObterLista(nome);
             dgv_Cliente.Rows.Clear();
             int cont = 0;
-            foreach (var clinte in lista)
+            foreach (var cliente in lista)
             {
                 dgv_Cliente.Rows.Add();
-                dgv_Cliente.Rows[cont].Cells[0].Value = clinte.Id;
-                dgv_Cliente.Rows[cont].Cells[1].Value = clinte.Nome;
-                dgv_Cliente.Rows[cont].Cells[2].Value = clinte.Cpf;
-                dgv_Cliente.Rows[cont].Cells[3].Value = clinte.Telefone;
-                dgv_Cliente.Rows[cont].Cells[4].Value = clinte.Email;
-                dgv_Cliente.Rows[cont].Cells[5].Value = clinte.Data_nasc;
-                dgv_Cliente.Rows[cont].Cells[6].Value = clinte.Data_cad;
-                dgv_Cliente.Rows[cont].Cells[7].Value = clinte.Ativo;
+                dgv_Cliente.Rows[cont].Cells[0].Value = cliente.Id;
+                dgv_Cliente.Rows[cont].Cells[1].Value = cliente.Nome;
+                dgv_Cliente.Rows[cont].Cells[2].Value = cliente.Cpf;
+                dgv_Cliente.Rows[cont].Cells[3].Value = cliente.Telefone;
+                dgv_Cliente.Rows[cont].Cells[4].Value = cliente.Email;
+                dgv_Cliente.Rows[cont].Cells[5].Value = cliente.Data_nasc;
+                dgv_Cliente.Rows[cont].Cells[6].Value = cliente.Data_cad;
+                dgv_Cliente.Rows[cont].Cells[7].Value = cliente.Ativo;
 
                 cont++;
             }
@@ -119,7 +124,35 @@ namespace SysPecNSDesk
 
         private void btn_InserirEndereco_Click(object sender, EventArgs e)
         {
-           
+            Endereco endereco = new(
+                Cliente.ObterPorId(int.Parse(txt_EnderecoId.Text)),
+                txt_Bairro.Text,
+                txt_Cep.Text,
+                txt_Numero.Text,
+                txt_Logradouro.Text,
+                txt_Complemento.Text,
+                cmb_Uf.Text,
+                txt_Cidade.Text,
+                cmb_TipoEndereco.Text
+                );
+                Endereco.Inserir();
+             if (endereco > 0)
+            {
+                txt_IdCliente.Text = endereco.Id.ToString();
+                MessageBox.Show($"O Endereço {endereco.Bairro},Foi inserido com sucesso, com o ID {endereco.Id}");
+                txt_IdCliente.Clear();
+                txt_Nome.Clear();
+                txt_Cpf.Clear();
+                txt_Telefone.Clear();
+                txt_Email.Clear();
+                txt_Nome.Focus();
+                txt_EnderecoId.Text = cliente.Id.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Falha ao gravar o cliente!");
+            }
+
         }
     }
     

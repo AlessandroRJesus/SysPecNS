@@ -83,6 +83,7 @@
             txt_Email.Size = new Size(210, 23);
             txt_Email.TabIndex = 4;
             txt_Email.Text = "paulo@gmail.com";
+         
             // 
             // txt_Senha
             // 
@@ -123,6 +124,7 @@
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Tag = "";
+           
             ResumeLayout(false);
             PerformLayout();
         }

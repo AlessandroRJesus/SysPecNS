@@ -30,6 +30,7 @@
         {
             tbp_ClienteEndereco = new TabControl();
             tbc_Cliente = new TabPage();
+            btn_Cadastro = new Button();
             txt_Busca = new TextBox();
             dgv_Cliente = new DataGridView();
             clnID = new DataGridViewTextBoxColumn();
@@ -41,7 +42,6 @@
             clnDataCad = new DataGridViewTextBoxColumn();
             clnAtivo = new DataGridViewTextBoxColumn();
             btn_Cancelar = new Button();
-            btn_Editar = new Button();
             btn_Inserir = new Button();
             DataNasc = new DateTimePicker();
             DataCad = new DateTimePicker();
@@ -61,7 +61,7 @@
             tbc_Endereco = new TabPage();
             btn_InserirEndereco = new Button();
             label = new Label();
-            comboBox1 = new ComboBox();
+            cmb_TipoEndereco = new ComboBox();
             cmb_Uf = new ComboBox();
             label8 = new Label();
             txt_Cidade = new TextBox();
@@ -74,7 +74,7 @@
             label4 = new Label();
             txt_Logradouro = new TextBox();
             label3 = new Label();
-            maskedTextBox1 = new MaskedTextBox();
+            txt_Cep = new MaskedTextBox();
             label2 = new Label();
             txt_EnderecoId = new TextBox();
             lbl = new Label();
@@ -91,18 +91,18 @@
             // 
             tbp_ClienteEndereco.Controls.Add(tbc_Cliente);
             tbp_ClienteEndereco.Controls.Add(tbc_Endereco);
-            tbp_ClienteEndereco.Location = new Point(35, 18);
+            tbp_ClienteEndereco.Location = new Point(53, 22);
             tbp_ClienteEndereco.Name = "tbp_ClienteEndereco";
             tbp_ClienteEndereco.SelectedIndex = 0;
-            tbp_ClienteEndereco.Size = new Size(559, 513);
+            tbp_ClienteEndereco.Size = new Size(547, 457);
             tbp_ClienteEndereco.TabIndex = 0;
             // 
             // tbc_Cliente
             // 
+            tbc_Cliente.Controls.Add(btn_Cadastro);
             tbc_Cliente.Controls.Add(txt_Busca);
             tbc_Cliente.Controls.Add(dgv_Cliente);
             tbc_Cliente.Controls.Add(btn_Cancelar);
-            tbc_Cliente.Controls.Add(btn_Editar);
             tbc_Cliente.Controls.Add(btn_Inserir);
             tbc_Cliente.Controls.Add(DataNasc);
             tbc_Cliente.Controls.Add(DataCad);
@@ -122,14 +122,25 @@
             tbc_Cliente.Location = new Point(4, 24);
             tbc_Cliente.Name = "tbc_Cliente";
             tbc_Cliente.Padding = new Padding(3);
-            tbc_Cliente.Size = new Size(551, 485);
+            tbc_Cliente.Size = new Size(539, 429);
             tbc_Cliente.TabIndex = 0;
             tbc_Cliente.Text = "Dados Cliente";
             tbc_Cliente.UseVisualStyleBackColor = true;
             // 
+            // btn_Cadastro
+            // 
+            btn_Cadastro.BackColor = Color.Transparent;
+            btn_Cadastro.Font = new Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_Cadastro.Location = new Point(278, 200);
+            btn_Cadastro.Name = "btn_Cadastro";
+            btn_Cadastro.Size = new Size(120, 29);
+            btn_Cadastro.TabIndex = 24;
+            btn_Cadastro.Text = "&Cadastro Endereço";
+            btn_Cadastro.UseVisualStyleBackColor = false;
+            // 
             // txt_Busca
             // 
-            txt_Busca.Location = new Point(3, 318);
+            txt_Busca.Location = new Point(0, 254);
             txt_Busca.Name = "txt_Busca";
             txt_Busca.Size = new Size(539, 23);
             txt_Busca.TabIndex = 23;
@@ -139,10 +150,11 @@
             // 
             dgv_Cliente.AllowUserToAddRows = false;
             dgv_Cliente.AllowUserToDeleteRows = false;
+            dgv_Cliente.AllowUserToOrderColumns = true;
             dgv_Cliente.BackgroundColor = Color.White;
             dgv_Cliente.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_Cliente.Columns.AddRange(new DataGridViewColumn[] { clnID, clnNome, clnCpf, clnTelefone, clnEmail, clnDataNasc, clnDataCad, clnAtivo });
-            dgv_Cliente.Location = new Point(3, 336);
+            dgv_Cliente.Location = new Point(0, 273);
             dgv_Cliente.Name = "dgv_Cliente";
             dgv_Cliente.ReadOnly = true;
             dgv_Cliente.RowHeadersVisible = false;
@@ -155,20 +167,21 @@
             clnID.HeaderText = "ID";
             clnID.Name = "clnID";
             clnID.ReadOnly = true;
-            clnID.Width = 50;
+            clnID.Width = 40;
             // 
             // clnNome
             // 
             clnNome.HeaderText = "Nome";
             clnNome.Name = "clnNome";
             clnNome.ReadOnly = true;
-            clnNome.Width = 150;
+            clnNome.Width = 90;
             // 
             // clnCpf
             // 
             clnCpf.HeaderText = "CPF";
             clnCpf.Name = "clnCpf";
             clnCpf.ReadOnly = true;
+            clnCpf.Width = 60;
             // 
             // clnTelefone
             // 
@@ -204,35 +217,21 @@
             // btn_Cancelar
             // 
             btn_Cancelar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_Cancelar.Image = Properties.Resources.Cancel;
-            btn_Cancelar.Location = new Point(324, 239);
+            btn_Cancelar.Location = new Point(419, 200);
             btn_Cancelar.Name = "btn_Cancelar";
-            btn_Cancelar.Size = new Size(65, 54);
+            btn_Cancelar.Size = new Size(82, 29);
             btn_Cancelar.TabIndex = 22;
             btn_Cancelar.Text = "&Cancelar";
             btn_Cancelar.TextImageRelation = TextImageRelation.ImageAboveText;
             btn_Cancelar.UseVisualStyleBackColor = true;
             btn_Cancelar.Click += btn_Cancelar_Click;
             // 
-            // btn_Editar
-            // 
-            btn_Editar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_Editar.Image = Properties.Resources.Edit;
-            btn_Editar.Location = new Point(232, 239);
-            btn_Editar.Name = "btn_Editar";
-            btn_Editar.Size = new Size(65, 54);
-            btn_Editar.TabIndex = 20;
-            btn_Editar.Text = "&Editar";
-            btn_Editar.TextImageRelation = TextImageRelation.ImageAboveText;
-            btn_Editar.UseVisualStyleBackColor = true;
-            // 
             // btn_Inserir
             // 
             btn_Inserir.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_Inserir.Image = Properties.Resources.Add;
-            btn_Inserir.Location = new Point(144, 239);
+            btn_Inserir.Location = new Point(188, 200);
             btn_Inserir.Name = "btn_Inserir";
-            btn_Inserir.Size = new Size(65, 54);
+            btn_Inserir.Size = new Size(74, 29);
             btn_Inserir.TabIndex = 19;
             btn_Inserir.Text = "&Inserir";
             btn_Inserir.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -241,16 +240,18 @@
             // 
             // DataNasc
             // 
+            DataNasc.Format = DateTimePickerFormat.Short;
             DataNasc.Location = new Point(243, 153);
             DataNasc.Name = "DataNasc";
-            DataNasc.Size = new Size(246, 23);
+            DataNasc.Size = new Size(99, 23);
             DataNasc.TabIndex = 18;
             // 
             // DataCad
             // 
-            DataCad.Location = new Point(243, 199);
+            DataCad.Format = DateTimePickerFormat.Short;
+            DataCad.Location = new Point(348, 153);
             DataCad.Name = "DataCad";
-            DataCad.Size = new Size(246, 23);
+            DataCad.Size = new Size(99, 23);
             DataCad.TabIndex = 17;
             // 
             // txt_Email
@@ -263,7 +264,7 @@
             // lbl_DataCad
             // 
             lbl_DataCad.AutoSize = true;
-            lbl_DataCad.Location = new Point(243, 181);
+            lbl_DataCad.Location = new Point(348, 135);
             lbl_DataCad.Name = "lbl_DataCad";
             lbl_DataCad.Size = new Size(99, 15);
             lbl_DataCad.TabIndex = 15;
@@ -294,13 +295,14 @@
             // 
             txt_IdCliente.Location = new Point(58, 49);
             txt_IdCliente.Name = "txt_IdCliente";
+            txt_IdCliente.ReadOnly = true;
             txt_IdCliente.Size = new Size(49, 23);
             txt_IdCliente.TabIndex = 10;
             // 
             // chk_Ativo
             // 
             chk_Ativo.AutoSize = true;
-            chk_Ativo.Location = new Point(412, 51);
+            chk_Ativo.Location = new Point(437, 49);
             chk_Ativo.Name = "chk_Ativo";
             chk_Ativo.Size = new Size(54, 19);
             chk_Ativo.TabIndex = 9;
@@ -365,7 +367,7 @@
             // 
             tbc_Endereco.Controls.Add(btn_InserirEndereco);
             tbc_Endereco.Controls.Add(label);
-            tbc_Endereco.Controls.Add(comboBox1);
+            tbc_Endereco.Controls.Add(cmb_TipoEndereco);
             tbc_Endereco.Controls.Add(cmb_Uf);
             tbc_Endereco.Controls.Add(label8);
             tbc_Endereco.Controls.Add(txt_Cidade);
@@ -378,23 +380,23 @@
             tbc_Endereco.Controls.Add(label4);
             tbc_Endereco.Controls.Add(txt_Logradouro);
             tbc_Endereco.Controls.Add(label3);
-            tbc_Endereco.Controls.Add(maskedTextBox1);
+            tbc_Endereco.Controls.Add(txt_Cep);
             tbc_Endereco.Controls.Add(label2);
             tbc_Endereco.Controls.Add(txt_EnderecoId);
             tbc_Endereco.Controls.Add(lbl);
             tbc_Endereco.Location = new Point(4, 24);
             tbc_Endereco.Name = "tbc_Endereco";
             tbc_Endereco.Padding = new Padding(3);
-            tbc_Endereco.Size = new Size(551, 485);
+            tbc_Endereco.Size = new Size(539, 429);
             tbc_Endereco.TabIndex = 1;
             tbc_Endereco.Text = "Enderecos";
             tbc_Endereco.UseVisualStyleBackColor = true;
             // 
             // btn_InserirEndereco
             // 
-            btn_InserirEndereco.Location = new Point(389, 162);
+            btn_InserirEndereco.Location = new Point(389, 169);
             btn_InserirEndereco.Name = "btn_InserirEndereco";
-            btn_InserirEndereco.Size = new Size(105, 34);
+            btn_InserirEndereco.Size = new Size(90, 23);
             btn_InserirEndereco.TabIndex = 20;
             btn_InserirEndereco.Text = "&Inserir";
             btn_InserirEndereco.UseVisualStyleBackColor = true;
@@ -409,13 +411,13 @@
             label.TabIndex = 19;
             label.Text = "Tipo Endereço";
             // 
-            // comboBox1
+            // cmb_TipoEndereco
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(218, 169);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(143, 23);
-            comboBox1.TabIndex = 18;
+            cmb_TipoEndereco.FormattingEnabled = true;
+            cmb_TipoEndereco.Location = new Point(218, 169);
+            cmb_TipoEndereco.Name = "cmb_TipoEndereco";
+            cmb_TipoEndereco.Size = new Size(143, 23);
+            cmb_TipoEndereco.TabIndex = 18;
             // 
             // cmb_Uf
             // 
@@ -515,12 +517,12 @@
             label3.TabIndex = 5;
             label3.Text = "&Logradouro";
             // 
-            // maskedTextBox1
+            // txt_Cep
             // 
-            maskedTextBox1.Location = new Point(333, 63);
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(117, 23);
-            maskedTextBox1.TabIndex = 4;
+            txt_Cep.Location = new Point(333, 63);
+            txt_Cep.Name = "txt_Cep";
+            txt_Cep.Size = new Size(117, 23);
+            txt_Cep.TabIndex = 4;
             // 
             // label2
             // 
@@ -535,6 +537,7 @@
             // 
             txt_EnderecoId.Location = new Point(52, 63);
             txt_EnderecoId.Name = "txt_EnderecoId";
+            txt_EnderecoId.ReadOnly = true;
             txt_EnderecoId.Size = new Size(57, 23);
             txt_EnderecoId.TabIndex = 1;
             // 
@@ -551,9 +554,9 @@
             // 
             groupBox1.BackColor = Color.Aqua;
             groupBox1.Controls.Add(tbp_ClienteEndereco);
-            groupBox1.Location = new Point(84, 48);
+            groupBox1.Location = new Point(83, 48);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(662, 537);
+            groupBox1.Size = new Size(662, 497);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Cliente e Enderecos";
@@ -612,20 +615,11 @@
         private TextBox txt_Email;
         private Button btn_Inserir;
         private Button btn_Cancelar;
-        private Button btn_Editar;
         private DataGridView dgv_Cliente;
         private Label label1;
-        private DataGridViewTextBoxColumn clnID;
-        private DataGridViewTextBoxColumn clnNome;
-        private DataGridViewTextBoxColumn clnCpf;
-        private DataGridViewTextBoxColumn clnTelefone;
-        private DataGridViewTextBoxColumn clnEmail;
-        private DataGridViewTextBoxColumn clnDataNasc;
-        private DataGridViewTextBoxColumn clnDataCad;
-        private DataGridViewTextBoxColumn clnAtivo;
         private TextBox txt_EnderecoId;
         private Label lbl;
-        private MaskedTextBox maskedTextBox1;
+        private MaskedTextBox txt_Cep;
         private Label label2;
         private TextBox txt_Numero;
         private TextBox txt_Bairro;
@@ -641,7 +635,16 @@
         private ComboBox cmb_Uf;
         private TextBox txt_Busca;
         private Label label;
-        private ComboBox comboBox1;
+        private ComboBox cmb_TipoEndereco;
         private Button btn_InserirEndereco;
+        private DataGridViewTextBoxColumn clnID;
+        private DataGridViewTextBoxColumn clnNome;
+        private DataGridViewTextBoxColumn clnCpf;
+        private DataGridViewTextBoxColumn clnTelefone;
+        private DataGridViewTextBoxColumn clnEmail;
+        private DataGridViewTextBoxColumn clnDataNasc;
+        private DataGridViewTextBoxColumn clnDataCad;
+        private DataGridViewTextBoxColumn clnAtivo;
+        private Button btn_Cadastro;
     }
 }

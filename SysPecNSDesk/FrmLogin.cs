@@ -14,6 +14,7 @@ namespace SysPecNSDesk
 {
     public partial class FrmLogin : Form
     {
+
         public FrmLogin()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace SysPecNSDesk
                 {
                     if (usuario.Ativo)
                     {
-                        Program.UsuarioLogado = usuario;
+                       Program.UsuarioLogado = usuario;
                         Close();
                     }
                     else
@@ -56,6 +57,8 @@ namespace SysPecNSDesk
             }
         }
 
-        
+     
+
+      
     }
 }     
