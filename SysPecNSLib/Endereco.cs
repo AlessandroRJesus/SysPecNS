@@ -148,10 +148,10 @@ namespace SysPecNSLib
         }
         public void Atualizar()
         {
-            // poderar atualizar todos os campos da classe endereço 
+            // podera atualizar todos os campos da classe endereço 
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "sp_usuario_altera";
+            cmd.CommandText = "sp_usuario_update";
             cmd.Parameters.AddWithValue("spid",Id);
             cmd.Parameters.AddWithValue("spcliente_id", Cliente.Id);
             cmd.Parameters.AddWithValue("spcep",Cep);

@@ -135,18 +135,21 @@ namespace SysPecNSDesk
                 txt_Cidade.Text,
                 cmb_TipoEndereco.Text
                 );
-                Endereco.Inserir();
-             if (endereco > 0)
+                endereco.Inserir();
+             if (endereco.Id > 0)
             {
                 txt_IdCliente.Text = endereco.Id.ToString();
                 MessageBox.Show($"O Endereço {endereco.Bairro},Foi inserido com sucesso, com o ID {endereco.Id}");
-                txt_IdCliente.Clear();
-                txt_Nome.Clear();
-                txt_Cpf.Clear();
-                txt_Telefone.Clear();
-                txt_Email.Clear();
+                txt_EnderecoId.Clear();
+                txt_Bairro.Clear();
+                txt_Cep.Clear();
+                txt_Logradouro.Clear();
+                txt_Complemento.Clear();
+                cmb_Uf.Focus();
                 txt_Nome.Focus();
-                txt_EnderecoId.Text = cliente.Id.ToString();
+                txt_Cidade.Clear();
+                cmb_TipoEndereco.Focus();
+                txt_EnderecoId.Text = endereco.Id.ToString();
             }
             else
             {

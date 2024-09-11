@@ -414,6 +414,7 @@
             // cmb_TipoEndereco
             // 
             cmb_TipoEndereco.FormattingEnabled = true;
+            cmb_TipoEndereco.Items.AddRange(new object[] { "COR", "RES", "COM", "ENT", "COB" });
             cmb_TipoEndereco.Location = new Point(218, 169);
             cmb_TipoEndereco.Name = "cmb_TipoEndereco";
             cmb_TipoEndereco.Size = new Size(143, 23);
@@ -422,7 +423,7 @@
             // cmb_Uf
             // 
             cmb_Uf.FormattingEnabled = true;
-            cmb_Uf.Items.AddRange(new object[] { "Rondônia (RO) ", "Acre (AC) ", "Amazonas (AM) ", "Roraima (RR) ", "Pará (PA) ", "Amapá (AP) ", "Tocantins (TO) ", "Maranhão (MA)", "Piauí (PI)", "Ceará (CE)", "Rio Grande do Norte (RN) ", "Paraíba (PB) ", "Pernambuco (PE) ", "Alagoas (AL)", "Sergipe (SE) ", "Bahia (BA) ", "Minas Gerais (MG) ", "Espírito Santo (ES) ", "Rio de Janeiro (RJ) ", "São Paulo (SP) ", "Paraná (PR) ", "Santa Catarina (SC) ", "Rio Grande do Sul (RS) ", "Mato Grosso do Sul (MS) ", "Mato Grosso (MT)", "Goiás (GO) ", "Distrito Federal (DF)  " });
+            cmb_Uf.Items.AddRange(new object[] { "RO ", "AC ", "AM ", "RR ", "PA ", "AP ", "TO ", "MA", "PI", "CE", "RN ", "PB ", "PE ", "AL", "SE ", "BA ", "MG ", "ES ", "RJ", "SP ", "PR ", "SC ", "RS ", "MS ", "MT", "GO ", "DF  " });
             cmb_Uf.Location = new Point(389, 117);
             cmb_Uf.Name = "cmb_Uf";
             cmb_Uf.Size = new Size(121, 23);

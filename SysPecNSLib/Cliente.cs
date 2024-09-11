@@ -143,7 +143,7 @@ namespace SysPecNSLib
             // alterar nome e email e etc  
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "sp_cliente_insert";
+            cmd.CommandText = "sp_cliente_update";
             cmd.Parameters.AddWithValue("spnome", Nome);
             cmd.Parameters.AddWithValue("sptelefone", Telefone);
             cmd.Parameters.AddWithValue("spdatanasc", Data_nasc);
