@@ -56,6 +56,7 @@ namespace SysPecNSLib
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = $"insert niveis (nome, sigla) values ('{Nome}','{Sigla}')";
             cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
         }
         public static Nivel ObterPorId(int  id) 
         {
@@ -71,7 +72,7 @@ namespace SysPecNSLib
                 nivel.Nome = dr.GetString(1);
                 nivel.Sigla = dr.GetString(2);
             }
-
+            cmd.Connection.Close();
             return nivel;
         }
 
@@ -87,6 +88,7 @@ namespace SysPecNSLib
             {
                 lista.Add(new(dr.GetInt32(0), dr.GetString(1), dr.GetString(2)));
             }
+            cmd.Connection.Close();
             return lista;
         }
         public bool Atualizar()
@@ -94,6 +96,7 @@ namespace SysPecNSLib
             var cmd = Banco.Abrir();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = $"update niveis" + $"set nome = '{Nome}',sigla = '{Sigla}' where id = {Id}";
+            cmd.Connection.Close();
             return cmd.ExecuteNonQuery() > 0? true : false ;
               
         }
@@ -104,6 +107,7 @@ namespace SysPecNSLib
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = $"delete from niveis where id = {Id}";
             cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
         }
 
     }

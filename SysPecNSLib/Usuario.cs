@@ -94,7 +94,6 @@ namespace SysPecNSLib
                     dr.GetBoolean(5)
                     );
             }
-
             return usuario;
         }
         public static List<Usuario> ObterLista(string?nome = "")
@@ -127,7 +126,6 @@ namespace SysPecNSLib
                         )
                     );
             }
-            
             return lista;
         }
 
@@ -139,7 +137,7 @@ namespace SysPecNSLib
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = $"select *from usuarios where email = '{email}' and senha = md5('{senha}')";
-           var dr = cmd.ExecuteReader();
+            var dr = cmd.ExecuteReader();
             if (dr.Read())
             {
                 usuario = new(
@@ -154,7 +152,6 @@ namespace SysPecNSLib
 
 
             }
-            
             return usuario;
 
         }

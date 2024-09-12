@@ -25,19 +25,19 @@ namespace SysPecNSLib
         {
             Cliente = new(); 
         }
-        //public Endereco(int id, Cliente Idcliente, string? cep, string? logradouro, string? numero, string? complemento, string? bairro, string? cidade, string? uf, string? tipo)
-        //{
-        //    Id = id;
-        //    Cliente = Idcliente;
-        //    Cep = cep;
-        //    Logradouro = logradouro;
-        //    Numero = numero;
-        //    Complemento = complemento;
-        //    Bairro = bairro;
-        //    Cidade = cidade;
-        //    Uf = uf;
-        //    Tipo = tipo;
-        //}
+        public Endereco(int id, Cliente Idcliente, string? cep, string? logradouro, string? numero, string? complemento, string? bairro, string? cidade, string? uf, string? tipo)
+        {
+            Id = id;
+            Cliente = Idcliente;
+            Cep = cep;
+            Logradouro = logradouro;
+            Numero = numero;
+            Complemento = complemento;
+            Bairro = bairro;
+            Cidade = cidade;
+            Uf = uf;
+            Tipo = tipo;
+        }
         public Endereco(int id, Cliente Idcliente, string? cep, string? logradouro, string? numero, string? bairro, string? cidade, string? uf, string? tipo)
         {
             Id = id;
@@ -84,6 +84,7 @@ namespace SysPecNSLib
             {
                 Id = dr.GetInt32(0);
             }
+            cmd.Connection.Close();
         }
         public static Endereco ObterPorId(int id)
         {
@@ -107,26 +108,26 @@ namespace SysPecNSLib
                     dr.GetString(8)
                     );
             }
-
+            cmd.Connection.Close();
             return endereco;
         }
         public static List<Endereco> ObterLista(string? cliente_id = "")
         {
             // lista do Endereco do cliente 
             List<Endereco> lista = new();
-            var comandosSQL = Banco.Abrir();
-            comandosSQL.CommandType = CommandType.Text;
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.Text;
             if (cliente_id == "")
             {
-                comandosSQL.CommandText = "select *from endereco order by cliente_id limit 10";
+                cmd.CommandText = "select *from endereco order by cliente_id limit 10";
             }
             else
             {
-                comandosSQL.CommandText = $"select *from endereco where cliente_id like '%{cliente_id}%' order by nome limit 10";
+                cmd.CommandText = $"select *from endereco where cliente_id like '%{cliente_id}%' order by nome limit 10";
             }
 
 
-            var dr = comandosSQL.ExecuteReader();
+            var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 lista.Add(
@@ -143,7 +144,7 @@ namespace SysPecNSLib
                         )
                     );
             }
-
+            cmd.Connection.Close();
             return lista;
         }
         public void Atualizar()

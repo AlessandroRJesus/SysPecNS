@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tbp_ClienteEndereco = new TabControl();
+            tbp_Endereco = new TabControl();
             tbc_Cliente = new TabPage();
             btn_Cadastro = new Button();
             txt_Busca = new TextBox();
@@ -80,22 +80,22 @@
             lbl = new Label();
             groupBox1 = new GroupBox();
             label1 = new Label();
-            tbp_ClienteEndereco.SuspendLayout();
+            tbp_Endereco.SuspendLayout();
             tbc_Cliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Cliente).BeginInit();
             tbc_Endereco.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // tbp_ClienteEndereco
+            // tbp_Endereco
             // 
-            tbp_ClienteEndereco.Controls.Add(tbc_Cliente);
-            tbp_ClienteEndereco.Controls.Add(tbc_Endereco);
-            tbp_ClienteEndereco.Location = new Point(53, 22);
-            tbp_ClienteEndereco.Name = "tbp_ClienteEndereco";
-            tbp_ClienteEndereco.SelectedIndex = 0;
-            tbp_ClienteEndereco.Size = new Size(547, 457);
-            tbp_ClienteEndereco.TabIndex = 0;
+            tbp_Endereco.Controls.Add(tbc_Cliente);
+            tbp_Endereco.Controls.Add(tbc_Endereco);
+            tbp_Endereco.Location = new Point(53, 22);
+            tbp_Endereco.Name = "tbp_Endereco";
+            tbp_Endereco.SelectedIndex = 0;
+            tbp_Endereco.Size = new Size(547, 457);
+            tbp_Endereco.TabIndex = 0;
             // 
             // tbc_Cliente
             // 
@@ -137,6 +137,7 @@
             btn_Cadastro.TabIndex = 24;
             btn_Cadastro.Text = "&Cadastro Endereço";
             btn_Cadastro.UseVisualStyleBackColor = false;
+            btn_Cadastro.Click += btn_Cadastro_Click;
             // 
             // txt_Busca
             // 
@@ -295,7 +296,6 @@
             // 
             txt_IdCliente.Location = new Point(58, 49);
             txt_IdCliente.Name = "txt_IdCliente";
-            txt_IdCliente.ReadOnly = true;
             txt_IdCliente.Size = new Size(49, 23);
             txt_IdCliente.TabIndex = 10;
             // 
@@ -391,6 +391,7 @@
             tbc_Endereco.TabIndex = 1;
             tbc_Endereco.Text = "Enderecos";
             tbc_Endereco.UseVisualStyleBackColor = true;
+            tbc_Endereco.Click += tbc_Endereco_Click;
             // 
             // btn_InserirEndereco
             // 
@@ -538,7 +539,6 @@
             // 
             txt_EnderecoId.Location = new Point(52, 63);
             txt_EnderecoId.Name = "txt_EnderecoId";
-            txt_EnderecoId.ReadOnly = true;
             txt_EnderecoId.Size = new Size(57, 23);
             txt_EnderecoId.TabIndex = 1;
             // 
@@ -554,7 +554,7 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.Aqua;
-            groupBox1.Controls.Add(tbp_ClienteEndereco);
+            groupBox1.Controls.Add(tbp_Endereco);
             groupBox1.Location = new Point(83, 48);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(662, 497);
@@ -582,7 +582,7 @@
             Controls.Add(groupBox1);
             Name = "FrmCliente";
             Text = "FrmCliente";
-            tbp_ClienteEndereco.ResumeLayout(false);
+            tbp_Endereco.ResumeLayout(false);
             tbc_Cliente.ResumeLayout(false);
             tbc_Cliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Cliente).EndInit();
@@ -595,7 +595,7 @@
 
         #endregion
 
-        private TabControl tbp_ClienteEndereco;
+        private TabControl tbp_Endereco;
         private TabPage tbc_Cliente;
         private TabPage tbc_Endereco;
         private GroupBox groupBox1;

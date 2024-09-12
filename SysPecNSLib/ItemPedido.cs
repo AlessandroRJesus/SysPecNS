@@ -47,7 +47,8 @@ namespace SysPecNSLib
             cmd.Parameters.AddWithValue("spproduto_id", Produto.Id);
             cmd.Parameters.AddWithValue("spquantidade",Quantidade);
             cmd.Parameters.AddWithValue(" spdesconto", Desconto);
-            Id = Convert.ToInt32(cmd.ExecuteScalar()); 
+            Id = Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.Connection.Close();
         }
         public static List<ItemPedido> ObterListaPorPedido(int id)
         {
@@ -67,6 +68,7 @@ namespace SysPecNSLib
                     )
                     );
             }
+            cmd.Connection.Close();
             return Itens;
         }
         public void Atualizar()
@@ -78,6 +80,7 @@ namespace SysPecNSLib
             cmd.Parameters.AddWithValue("spquantidade",Quantidade);
             cmd.Parameters.AddWithValue("spdesconto",Desconto);
             cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
         }
 
 

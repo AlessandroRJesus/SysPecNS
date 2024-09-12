@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,7 @@ namespace SysPecNSDesk
                 txt_Email.Text,
                 DataCad.Value,
                 DataNasc.Value = DateTime.Now
-                ); 
+                );
             cliente.Inserir();
             if (cliente.Id > 0)
             {
@@ -49,7 +50,11 @@ namespace SysPecNSDesk
             {
                 MessageBox.Show("Falha ao gravar o cliente!");
             }
+
         }
+
+
+
         //Botão para decidir se vai continuar o cadastro ou não do cliente
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
@@ -126,38 +131,48 @@ namespace SysPecNSDesk
         {
             Endereco endereco = new(
                 Cliente.ObterPorId(int.Parse(txt_EnderecoId.Text)),
-                txt_Bairro.Text,
                 txt_Cep.Text,
-                txt_Numero.Text,
                 txt_Logradouro.Text,
+                txt_Numero.Text,
                 txt_Complemento.Text,
-                cmb_Uf.Text,
+                txt_Bairro.Text,
                 txt_Cidade.Text,
+                cmb_Uf.Text,
                 cmb_TipoEndereco.Text
                 );
-                endereco.Inserir();
-             if (endereco.Id > 0)
+            endereco.Inserir();
+            if (endereco.Id > 0)
             {
                 txt_IdCliente.Text = endereco.Id.ToString();
-                MessageBox.Show($"O Endereço {endereco.Bairro},Foi inserido com sucesso, com o ID {endereco.Id}");
-                txt_EnderecoId.Clear();
-                txt_Bairro.Clear();
+                MessageBox.Show($"O Endereço, Foi inserido com sucesso, com o ID do cliente{endereco.Id}");
                 txt_Cep.Clear();
                 txt_Logradouro.Clear();
+                txt_Numero.Clear();
                 txt_Complemento.Clear();
-                cmb_Uf.Focus();
-                txt_Nome.Focus();
+                txt_Bairro.Clear();
                 txt_Cidade.Clear();
+                cmb_Uf.Focus();
                 cmb_TipoEndereco.Focus();
                 txt_EnderecoId.Text = endereco.Id.ToString();
             }
             else
             {
-                MessageBox.Show("Falha ao gravar o cliente!");
+                MessageBox.Show("Falha ao gravar o endereço do cliente!");
             }
 
         }
+
+        private void btn_Cadastro_Click(object sender, EventArgs e)
+        {
+            this.tbp_Endereco.SelectedTab = tbc_Endereco;
+
+        }
+
+        private void tbc_Endereco_Click(object sender, EventArgs e)
+        {
+
+        }
     }
-    
+
 }
 

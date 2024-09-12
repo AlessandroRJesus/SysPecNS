@@ -82,8 +82,7 @@
             txt_Email.Name = "txt_Email";
             txt_Email.Size = new Size(210, 23);
             txt_Email.TabIndex = 4;
-            txt_Email.Text = "paulo@gmail.com";
-         
+            txt_Email.Text = "nandok1012@gmail.com";
             // 
             // txt_Senha
             // 
@@ -91,7 +90,7 @@
             txt_Senha.Name = "txt_Senha";
             txt_Senha.Size = new Size(210, 23);
             txt_Senha.TabIndex = 5;
-            txt_Senha.Text = "12345";
+            txt_Senha.Text = "123";
             txt_Senha.UseSystemPasswordChar = true;
             // 
             // label1
@@ -124,7 +123,6 @@
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Tag = "";
-           
             ResumeLayout(false);
             PerformLayout();
         }

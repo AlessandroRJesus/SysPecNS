@@ -75,6 +75,7 @@ namespace SysPecNSLib
             {
                 Id = dr.GetInt32(0);
             }
+            cmd.Connection.Close();
         }
 
 
@@ -85,7 +86,7 @@ namespace SysPecNSLib
             Cliente cliente = new();
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = $"select *from cliente where id = {id}";
+            cmd.CommandText = $"select *from clientes where id = {id}";
             var dr = cmd.ExecuteReader();
             if (dr.Read())
             {
@@ -100,6 +101,7 @@ namespace SysPecNSLib
                          dr.GetBoolean(7)
                          );
             }
+            cmd.Connection.Close();
             return cliente;
 
 
@@ -109,17 +111,17 @@ namespace SysPecNSLib
         {
             // lista de cliente
             List<Cliente> lista = new();
-            var comandosSQL = Banco.Abrir();
-            comandosSQL.CommandType = CommandType.Text;
+            var cmd = Banco.Abrir();
+           cmd.CommandType = CommandType.Text;
             if (nome == "")
             {
-                comandosSQL.CommandText = "select *from cliente order by nome limit 10";
+                cmd.CommandText = "select *from cliente order by nome limit 10";
             }
             else
             {
-                comandosSQL.CommandText = $"select *from cliente where nome like '%{nome}%' order by nome limit 10";
+                cmd.CommandText = $"select *from cliente where nome like '%{nome}%' order by nome limit 10";
             }
-            var dr = comandosSQL.ExecuteReader();
+            var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 lista.Add(
@@ -135,7 +137,7 @@ namespace SysPecNSLib
                       )
                     );
             }
-
+            cmd.Connection.Close();
             return lista;
         }
         public void Atualizar()

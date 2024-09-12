@@ -72,6 +72,7 @@ namespace SysPecNSLib
             cmd.Parameters.AddWithValue("spcliente_id", Cliente.Id);
             cmd.Parameters.AddWithValue("spusuario_id", Usuario.Id);
             Id = Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.Connection.Close();
         }
         public static Pedido ObterPorId(int id)
         {
@@ -94,7 +95,7 @@ namespace SysPecNSLib
                     , ItemPedido.ObterListaPorPedido(dr.GetInt32(0))
                      );
             }
-
+            cmd.Connection.Close();
             return pedido;
         }
       
@@ -105,15 +106,15 @@ namespace SysPecNSLib
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.CommandText = $"update pedidos set status = {Desconto} where id = {Id}";
                 cmd.ExecuteNonQuery();
-
-            }
+                cmd.Connection.Close();
+        }
             public void AlterarStatus()
             {
                 var cmd = Banco.Abrir();
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.CommandText = $"update pedidos set status = {Status} where id = {Id}";
                 cmd.ExecuteNonQuery();
-
+                cmd.Connection.Close();
             }
               public static List<Pedido> ObterLista()
               {
@@ -135,7 +136,8 @@ namespace SysPecNSLib
                           , ItemPedido.ObterListaPorPedido(dr.GetInt32(0)))
                         );
                     }
-                return pedidos;
+                     cmd.Connection.Close();
+                     return pedidos;
               }
 
             public static List<Pedido> ObterListaPorCliente(int id)
@@ -160,6 +162,7 @@ namespace SysPecNSLib
                       );
 
                 }
+                 cmd.Connection.Close();
                  return pedidos;
             }    
 
@@ -186,7 +189,8 @@ namespace SysPecNSLib
                      )
                     );
                  }
-                  return pedidos;
+                     cmd.Connection.Close();
+                     return pedidos;
              }
 
 
