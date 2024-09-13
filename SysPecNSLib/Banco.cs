@@ -17,7 +17,7 @@ namespace SysPecNSLib
         /// <returns> Entrega um objeto de comandos na string de conexão informada </returns> 
         public static MySqlCommand Abrir()
         {
-            string strconn = @"Server=10.91.45.21;database=syspecdb;user=root;password=root";
+            string strconn = @"Server=10.91.45.20;database=syspecdb;user=root;password=root";
             MySqlConnection cn = new MySqlConnection(strconn);
             MySqlCommand cmd = new();
             try //tratamento de excessão

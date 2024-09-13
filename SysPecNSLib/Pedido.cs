@@ -11,7 +11,7 @@ namespace SysPecNSLib
     public class Pedido
     {
         public int Id { get; set; }
-        public Usuario? Usuario { get; set; }
+        public Usuario Usuario { get; set; }
         public Cliente Cliente { get; set; }
         public DateTime Data { get; set; }
         public string Status { get; set; }
@@ -21,7 +21,7 @@ namespace SysPecNSLib
             {
 
             }
-            public Pedido(Usuario? usuario, Cliente cliente, DateTime data, string status, double desconto)
+            public Pedido(Usuario usuario, Cliente cliente, DateTime data, string status, double desconto)
             {
                 Usuario = usuario;
                 Cliente = cliente;
@@ -37,7 +37,7 @@ namespace SysPecNSLib
                 Desconto = desconto;
             }
 
-            public Pedido(Usuario? usuario, Cliente cliente, double desconto)
+            public Pedido(Usuario usuario, Cliente cliente, double desconto)
             {
 
                 Usuario = usuario;
@@ -45,7 +45,7 @@ namespace SysPecNSLib
                 Desconto = desconto;
             }
 
-            public Pedido(int id, Usuario? usuario, Cliente cliente, DateTime data, string status, double desconto)
+            public Pedido(int id, Usuario usuario, Cliente cliente, DateTime data, string status, double desconto)
             {
                 Id = id;
                 Usuario = usuario;
@@ -54,7 +54,7 @@ namespace SysPecNSLib
                 Status = status;
                 Desconto = desconto;
             }
-        public Pedido(int id, Usuario? usuario, Cliente cliente, DateTime data, string status, double desconto, List<ItemPedido> itens)
+        public Pedido(int id, Usuario usuario, Cliente cliente, DateTime data, string status, double desconto, List<ItemPedido> itens)
         {
              Id = id;
              Usuario = usuario;
@@ -64,6 +64,7 @@ namespace SysPecNSLib
              Desconto = desconto;
              Itens = itens;
         }
+
         public void Inserir()
         {
             var cmd = Banco.Abrir();
