@@ -59,7 +59,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Arial", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label2.Location = new Point(97, 71);
+            label2.Location = new Point(80, 66);
             label2.Name = "label2";
             label2.Size = new Size(23, 17);
             label2.TabIndex = 1;
@@ -67,7 +67,7 @@
             // 
             // txt_Produto_Id
             // 
-            txt_Produto_Id.Location = new Point(97, 88);
+            txt_Produto_Id.Location = new Point(80, 83);
             txt_Produto_Id.Name = "txt_Produto_Id";
             txt_Produto_Id.ReadOnly = true;
             txt_Produto_Id.Size = new Size(54, 23);
@@ -77,7 +77,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Arial", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label3.Location = new Point(201, 68);
+            label3.Location = new Point(184, 63);
             label3.Name = "label3";
             label3.Size = new Size(83, 17);
             label3.TabIndex = 3;
@@ -85,7 +85,7 @@
             // 
             // txt_Quantidade
             // 
-            txt_Quantidade.Location = new Point(179, 88);
+            txt_Quantidade.Location = new Point(162, 83);
             txt_Quantidade.Name = "txt_Quantidade";
             txt_Quantidade.Size = new Size(135, 23);
             txt_Quantidade.TabIndex = 4;
@@ -130,7 +130,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Arial", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label4.Location = new Point(332, 54);
+            label4.Location = new Point(315, 49);
             label4.Name = "label4";
             label4.Size = new Size(179, 34);
             label4.TabIndex = 6;
@@ -138,7 +138,7 @@
             // 
             // Data_Movimento
             // 
-            Data_Movimento.Location = new Point(332, 88);
+            Data_Movimento.Location = new Point(315, 83);
             Data_Movimento.Name = "Data_Movimento";
             Data_Movimento.Size = new Size(170, 23);
             Data_Movimento.TabIndex = 7;

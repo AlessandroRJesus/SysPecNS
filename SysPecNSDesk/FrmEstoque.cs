@@ -40,11 +40,10 @@ namespace SysPecNSDesk
         }
         private bool VerificaControles()
         {
-            if txt_quan.Text != string.Empty
-             || txt_Cpf.Text != string.Empty
-             || txt_Telefone.Text != string.Empty
-             || txt_Email.Text != string.Empty)
-            {
+            if  (Convert.ToDouble(txt_Quantidade.Text) 
+             || Data_Movimento.
+             )
+             {
                 return true;
             }
             else
